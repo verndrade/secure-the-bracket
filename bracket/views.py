@@ -26,3 +26,8 @@ def team(request, name):
 
 def view404(request, exception=None):
     return render(request, "error.html")
+
+
+def matchup(request, id):
+    match = get_object_or_404(Matchup, id=id)
+    return render(request, "matchup.html", {"id": id, "team1": match.team1, "team2": match.team2})
