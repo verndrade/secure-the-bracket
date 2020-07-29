@@ -1,17 +1,143 @@
 <html>
-    <head>
-        <style>
-            body {
-                background-color: #011f40
-            }
-        </style>
-        
-    </head>
-    <body>
-   
+
+<head>
+    <style>
         {% load static %}
-        <img src="{% static "logo.png" %}" width="250" alt="Secure the ballot logo">
+        @font-face {
+            font-family: 'Poppins-Medium.ttf';
+            src: local('Poppins-Medium'),
+            url('{% static 'fonts/Poppins-Medium.ttf' %} format("truetype")');
+        }
+        
+        body {
+            background-color: #011f40
+        }
+
+        .header {
+            padding-top: 5%;
+            position: relative;
+            text-align: center;
+            left: 0;
+            top: 0;
+        }
+
+        .header-img {
+            width: 95%
+        }
+
+        .middle {
+            padding-top: 5%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: space-around;
+        }
+
+        .link {
+            font-family: Poppins-Medium;
+            background-color: #f95759;
+            color: white;
+            text-align: center;
+            margin: 10;
+            flex: 0 0 20%;
+            height: auto;
+        }
+
+        .link:before {
+            content: '';
+            float: left;
+            padding-top: 100%;
+        }
+        .countdown {
+            padding: 10%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+        }
+
+        .a {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        .round {
+            background-color: #ff2323;
+            width: 70%;
+            color: white;
+            text-align: center;
+        }
+
+        .timer {
+            color: white;
+        }
+        .challenge {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
     
-        <text>hello matchup</text>
-    </body>
+        
+        }
+        .team {
+            width: 46%
+        }
+        .team-img {
+            width: 100%
+        }
+
+        .divider {
+            width: 10px;
+            background-color: white;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        {% load static %}
+        <img src="{% static "header.png" %}" class="header-img" alt="Blank bracket">
+    </div>
+    <div class="middle">
+        <div class="link">
+            <p>REQUEST ABSENTEE BALLOT</p>
+        </div>
+        <div class="link">
+            <p>FIND MY POLLING PLACE</p>
+        </div>
+        
+        <div class="link">
+            <a href="https://www.securetheballot.org/verify?utm_source=website&utm_medium=website&utm_campaign=website">
+            <p>VERIFY MY SIGN UP</p>
+            </a>
+        </div>
+    </div>
+    <div class = "countdown">
+        <div class = "round">
+            <h1>First Round</h1>
+        </div>
+        <div class = "timer">
+            <h1> Time Left: </h1>
+        </div>
+
+    </div>
+
+    <div class = "challenge">
+        <div class = "team">
+            <img src="{% static "zion.jpg" %}" class="team-img" alt="team">
+        </div>
+        <div class = "divider">
+
+        </div>
+        <div class = "team">
+            <img src="{% static "reggie.jpg" %}" class="team-img" alt="team">
+        </div>
+
+    </div>
+</body>
+
 </html>
