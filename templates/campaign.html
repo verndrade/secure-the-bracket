@@ -92,9 +92,9 @@
         .team-pictures {
             display: flex;
             flex-direction: column;
-            align-content: center;
+        
             align-items: center;
-            justify-content: center;
+            justify-content: space-around;
             height: 100%
         }
 
@@ -102,8 +102,9 @@
 
         }
         .team-img {
-            width: 50%;
+            width: 60%;
             align-self: center;
+            border-radius:50%;
         
         }
     </style>
@@ -140,7 +141,7 @@
         <div class = "team-pictures">
             {% for team in teams.all %}
                 <img src="{% static "zion.jpg" %}" class="team-img" alt="Zion">
-                <div class = "team-choice">{{ team.name }}</div>
+                <!-- <div class = "team-choice">{{ team.name }}</div> -->
             {% endfor %}
         
         </div>
