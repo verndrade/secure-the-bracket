@@ -43,6 +43,8 @@
             margin: 10;
             flex: 0 0 20%;
             height: auto;
+            font-size: 2vw;
+            padding: 5pt
         }
 
         .link:before {
@@ -56,6 +58,7 @@
             flex-direction: column;
             align-content: center;
             align-items: center;
+            font-size: 2vw;
         }
 
         .a {
@@ -81,7 +84,26 @@
         
         }
         .team {
-            width: 46%
+            width: 46%;
+            position: relative;
+            text-align: center;
+        }
+        .team-name {
+            position: absolute;
+            right: 5%;
+            color: white;
+            border-color: black;
+            font-size: 6vw;
+        }
+
+        .votes {
+            position: absolute;
+            top: 50%;
+            left: 33%;
+            color: white;
+            border-color: black;
+          
+            font-size: 6vw;
         }
         .team-img {
             width: 100%
@@ -128,13 +150,17 @@
 
     <div class = "challenge">
         <div class = "team">
+            <div class = "team-name">Team: </div>
             <img src="{% static "zion.jpg" %}" class="team-img" alt="team">
+            <div class = "votes">VOTES: </div>
         </div>
         <div class = "divider">
 
         </div>
         <div class = "team">
+            <div class = "team-name">Team: </div>
             <img src="{% static "reggie.jpg" %}" class="team-img" alt="team">
+            <div class = "votes">VOTES: </div>
         </div>
 
     </div>
