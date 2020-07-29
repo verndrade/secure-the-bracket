@@ -93,16 +93,17 @@
             right: 5%;
             color: white;
             border-color: black;
+            text-shadow: 1px 0 0;
             font-size: 6vw;
         }
 
         .votes {
             position: absolute;
             top: 50%;
-            left: 33%;
+            left: 40%;
             color: white;
             border-color: black;
-          
+            text-shadow: 1px 2px black;
             font-size: 6vw;
         }
         .team-img {
@@ -126,10 +127,14 @@
     </div>
     <div class="middle">
         <div class="link">
+            <a href= "https://www.securetheballot.org/absentee">
             <p>REQUEST ABSENTEE BALLOT</p>
+        </a>
         </div>
         <div class="link">
+            <a href = "https://www.securetheballot.org/wheretovote">
             <p>FIND MY POLLING PLACE</p>
+        </a>
         </div>
         
         <div class="link">
@@ -143,24 +148,28 @@
             <h1>First Round</h1>
         </div>
         <div class = "timer">
-            <h1> Time Left: </h1>
+
+            <h1> Time Left: {{ deadline|timeuntil }}</h1>
+        
+            <!-- {{ team.name }} -- {{ team.vote_count }} -->
         </div>
 
     </div>
 
     <div class = "challenge">
         <div class = "team">
-            <div class = "team-name">Team: </div>
+            <div class = "team-name">Team: {{ team1 }} </div>
             <img src="{% static "zion.jpg" %}" class="team-img" alt="team">
-            <div class = "votes">VOTES: </div>
+            <div class = "votes">{{ team1.vote_count }} </div>
+
         </div>
         <div class = "divider">
 
         </div>
         <div class = "team">
-            <div class = "team-name">Team: </div>
+            <div class = "team-name">Team: {{ team2 }}  </div>
             <img src="{% static "reggie.jpg" %}" class="team-img" alt="team">
-            <div class = "votes">VOTES: </div>
+            <div class = "votes">{{ team2.vote_count }}</div>
         </div>
 
     </div>

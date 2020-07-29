@@ -30,4 +30,4 @@ def view404(request, exception=None):
 
 def matchup(request, id):
     match = get_object_or_404(Matchup, id=id)
-    return render(request, "matchup.html", {"id": id, "team1": match.team1, "team2": match.team2})
+    return render(request, "matchup.html", {"id": id, "team1": match.team1, "team2": match.team2, "deadline": match.deadline})
