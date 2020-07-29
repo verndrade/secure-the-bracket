@@ -1,0 +1,106 @@
+<html>
+
+<head>
+    <style>
+        .nav-bar {
+            width: 100%;
+            background-color: white;
+            padding: 2pt;
+        }
+
+        body {
+            background-color:  #011f40;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            left: 0;
+            top: 0;
+            color: black;  
+             
+        }
+
+        .header-img {
+            width: 100%;
+            text-align: center;
+        }
+
+        .team-name {
+            position: absolute;
+            left: 5%;
+            top: 5%;
+            color: white;
+            border-color: black;
+            text-shadow: 1px 0 0;
+            font-size: 6vw;
+        }
+
+        .info {
+            background-color: #011f40;
+            color: white;
+        
+            padding: 5pt;
+        }
+
+        h2 {
+            padding: 0;
+            margin: 0;
+        }
+        .stopclock-img {
+            width: 70%;
+            text-align: center;
+            position: relative;
+        }
+
+
+        .countdown-info {
+            position: absolute;
+            text-align: center;
+            z-index: 1;
+            color: white;
+            border-color: black;
+            text-shadow: 1px 0 0;
+            font-size: 6vw;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class = "nav-bar">
+        Header
+    </div>
+    <div class = "header">
+        <div class = "team-name"> {{ name }} </div>
+        {% load static %}
+        <img src="{% static "campaignheaderphoto.jpg" %}" class="header-img" alt="Blank bracket">
+        
+    
+    </div>
+    <div class="info">
+        <div style = "font-size: 4vw; font-weight: bold;">Campaign Information</div>
+        <p style = "font-size: 2.5vw; padding: 5pt"> {{ info }} </p>
+    </div>
+
+    <div class = "countdown">
+        <div class = "countdown-info"> With {{ deadline|timeuntil }} remaining: 
+
+
+        </div>
+        {% load static %}
+        <img src="{% static "stopclock.jpg" %}" class="stopclock-img" alt="Stopclock">
+    </div>
+
+    {% for team in teams.all %}
+    {{ team.name }} has {{ team.vote_count }} voter registrations
+    {% endfor %}
+
+
+</body>
+
+</html>
