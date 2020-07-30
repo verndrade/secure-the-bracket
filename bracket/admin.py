@@ -5,3 +5,4 @@ from .models import *
 
 admin.site.register(Team)
 admin.site.register(Matchup)
+admin.site.register(Campaign)

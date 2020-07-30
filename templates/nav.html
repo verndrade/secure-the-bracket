@@ -1,0 +1,142 @@
+<style>
+    html {
+        box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+    }
+
+    nav {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5
+    }
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        align-content: space-around;
+        justify-content: center;
+    }
+
+    .nav-item a {
+        display: inline-block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #011f40;
+        font-size: 2vw;
+    }
+
+    .header-logo {
+        width: 15%
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    /* Dropdown button */
+    .dropdown .dropbtn {
+
+        font-size: 2vw;
+        padding: 10px 15px;
+        background-color: inherit;
+        font-family: inherit;
+        /* Important for vertical align on mobile phones */
+        margin: 0;
+        display: block;
+        border-width: 0;
+        border-color: white;
+        /* Important for vertical align on mobile phones */
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: center;
+
+    }
+
+    a:hover,
+    .dropdown:hover .dropbtn {
+        background-color: lightgray;
+        border: none;
+        border-width: 0;
+        border-color: white;
+
+        /* display: block; */
+    }
+
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    /* Add a grey background color to dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .nav-logo {
+        width: 100%;
+        padding: 0;
+    }
+</style>
+
+<nav class="navbar">
+    <div class="nav-logo">
+        <a href="https://www.securetheballot.org" class="logo">
+            {% load static %}
+            <img src="{% static "logo.png" %}" class="header-logo" alt="Secure the Ballot Logo">
+        </a>
+    </div>
+    <div class="nav-links">
+
+        <div class="dropdown">
+            <button class="dropbtn">Campaigns
+          
+            </button>
+            <div class="dropdown-content">
+                <a href= "/campaign/1" >Campaign 1</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Matchups
+         
+            </button>
+            <div class="dropdown-content">
+                <a href= "/matchup/1" >Matchup 1</a>
+            </div>
+        </div>
+        <div class="nav-item"><a href="https://www.securetheballot.org/">Register to vote</a>
+        </div>
+
+</nav>

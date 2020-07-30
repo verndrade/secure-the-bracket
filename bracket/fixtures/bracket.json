@@ -1,0 +1,87 @@
+[
+{
+    "model": "bracket.team",
+    "pk": 1,
+    "fields": {
+        "name": "red",
+        "vote_count": 20
+    }
+},
+{
+    "model": "bracket.team",
+    "pk": 2,
+    "fields": {
+        "name": "blue",
+        "vote_count": 30
+    }
+},
+{
+    "model": "bracket.team",
+    "pk": 3,
+    "fields": {
+        "name": "green",
+        "vote_count": 15
+    }
+},
+{
+    "model": "bracket.team",
+    "pk": 4,
+    "fields": {
+        "name": "Zion",
+        "vote_count": 25
+    }
+},
+{
+    "model": "bracket.team",
+    "pk": 5,
+    "fields": {
+        "name": "Reggie",
+        "vote_count": 13
+    }
+},
+{
+    "model": "bracket.matchup",
+    "pk": 1,
+    "fields": {
+        "team1": 1,
+        "team2": 2,
+        "deadline": "2020-08-05T14:42:57.116"
+    }
+},
+{
+    "model": "bracket.matchup",
+    "pk": 2,
+    "fields": {
+        "team1": 1,
+        "team2": 2,
+        "deadline": "2020-08-05T14:43:13"
+    }
+},
+{
+    "model": "bracket.campaign",
+    "pk": 1,
+    "fields": {
+        "info": "The purpose of this campaign is to increase the number of voter registrations prior to the November election.",
+        "name": "Duke Men's Basketball Campaign",
+        "deadline": "2020-11-03T01:00:00",
+        "teams": [
+            4,
+            5
+        ]
+    }
+},
+{
+    "model": "bracket.campaign",
+    "pk": 2,
+    "fields": {
+        "info": "jack campaign for votes",
+        "name": "Campaign Register Voters",
+        "deadline": "2020-11-03T01:00:00",
+        "teams": [
+            1,
+            2,
+            3
+        ]
+    }
+}
+]
