@@ -2,7 +2,6 @@
 
 <head>
     <style>
-        
         body {
             background-color: #011f40
         }
@@ -10,7 +9,7 @@
         .header {
             position: relative;
             text-align: center;
-    
+
         }
 
         .header-img {
@@ -36,14 +35,23 @@
             flex: 0 0 20%;
             height: auto;
             font-size: 2vw;
-            padding: 5pt
+            padding: 5pt;
+            display: inline-block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #011f40;
+            font-size: 2vw;
         }
 
         .link:before {
             content: '';
             float: left;
             padding-top: 100%;
+            text-decoration: none;
+            color: #011f40;
+            font-size: 2vw;
         }
+
         .countdown {
             padding: 10%;
             display: flex;
@@ -58,6 +66,7 @@
             height: 100%;
             width: 100%;
         }
+
         .round {
             background-color: #ff2323;
             width: 70%;
@@ -68,18 +77,19 @@
         .timer {
             color: white;
         }
+
         .challenge {
             display: flex;
             flex-direction: row;
             justify-content: center;
-    
-        
         }
+
         .team {
             width: 46%;
             position: relative;
             text-align: center;
         }
+
         .team-name {
             position: absolute;
             right: 5%;
@@ -88,6 +98,17 @@
             text-shadow: 1px 0 0;
             font-size: 6vw;
         }
+
+        a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: lightgray;
+            border: none;
+            border-width: 0;
+            border-color: white;
+
+            /* display: block; */
+        }
+
 
         .votes {
             position: absolute;
@@ -98,6 +119,7 @@
             text-shadow: 1px 2px black;
             font-size: 6vw;
         }
+
         .team-img {
             width: 100%
         }
@@ -105,9 +127,11 @@
         .divider {
             width: 10px;
             background-color: white;
-
         }
 
+        a {
+            color: white
+        }
     </style>
 
 </head>
@@ -120,49 +144,49 @@
     </div>
     <div class="middle">
         <div class="link">
-            <a href= "https://www.securetheballot.org/absentee">
-            <p>REQUEST ABSENTEE BALLOT</p>
-        </a>
+            <a href="https://www.securetheballot.org/absentee" style="text-decoration: none;">
+                <p>REQUEST ABSENTEE BALLOT</p>
+            </a>
         </div>
         <div class="link">
-            <a href = "https://www.securetheballot.org/wheretovote">
-            <p>FIND MY POLLING PLACE</p>
-        </a>
+            <a href="https://www.securetheballot.org/wheretovote" style="text-decoration: none;">
+                <p>FIND MY POLLING PLACE</p>
+            </a>
         </div>
-        
+
         <div class="link">
-            <a href="https://www.securetheballot.org/verify?utm_source=website&utm_medium=website&utm_campaign=website">
-            <p>VERIFY MY SIGN UP</p>
+            <a href="https://www.securetheballot.org/verify?utm_source=website&utm_medium=website&utm_campaign=website" style="text-decoration: none;">
+                <p>VERIFY MY SIGN UP</p>
             </a>
         </div>
     </div>
-    <div class = "countdown">
-        <div class = "round">
+    <div class="countdown">
+        <div class="round">
             <h1>First Round</h1>
         </div>
-        <div class = "timer">
+        <div class="timer">
 
             <h1> Time Left: {{ deadline|timeuntil }}</h1>
-        
+
             <!-- {{ team.name }} -- {{ team.vote_count }} -->
         </div>
 
     </div>
 
-    <div class = "challenge">
-        <div class = "team">
-            <div class = "team-name">Team: {{ team1 }} </div>
+    <div class="challenge">
+        <div class="team">
+            <div class="team-name">Team: {{ team1 }} </div>
             <img src="{% static "zion.jpg" %}" class="team-img" alt="team">
-            <div class = "votes">{{ team1.vote_count }} </div>
+            <div class="votes">{{ team1.vote_count }} </div>
 
         </div>
-        <div class = "divider">
+        <div class="divider">
 
         </div>
-        <div class = "team">
-            <div class = "team-name">Team: {{ team2 }}  </div>
+        <div class="team">
+            <div class="team-name">Team: {{ team2 }} </div>
             <img src="{% static "reggie.jpg" %}" class="team-img" alt="team">
-            <div class = "votes">{{ team2.vote_count }}</div>
+            <div class="votes">{{ team2.vote_count }}</div>
         </div>
 
     </div>
