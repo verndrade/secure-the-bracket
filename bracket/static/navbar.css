@@ -13,9 +13,11 @@ html {
 .nav-links {
     list-style: none;
     display: flex;
-    align-content: space-around;
-    justify-content: center;
-    float: left;
+    flex-direction: row;
+
+    align-content: flex-end;
+    justify-content: space-evenly;
+    
 }
 
 .nav-item a {
@@ -24,6 +26,7 @@ html {
     text-decoration: none;
     color: #011f40;
     font-size: 2vw;
+    
 }
 
 .header-logo {
@@ -43,7 +46,7 @@ html {
     font-family: inherit;
     /* Important for vertical align on mobile phones */
     margin: 0;
-    display: block;
+
     border-width: 0;
     border-color: white;
     /* Important for vertical align on mobile phones */
