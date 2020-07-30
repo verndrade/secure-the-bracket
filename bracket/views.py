@@ -34,4 +34,10 @@ def matchup(request, id):
 
 def campaign(request, id):
     campaign = get_object_or_404(Campaign, id=id)
-    return render(request, "campaign.html", {"id": id, "teams": campaign.teams, "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline})
+    
+    votecount = 0
+    for team in campaign.teams.all():
+        votecount += team.vote_count
+
+    votecountPercent = votecount / 100
+    return render(request, "campaign.html", {"id": id, "teams": campaign.teams, "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline, 'votecountPercent': votecountPercent, 'votecount': votecount})

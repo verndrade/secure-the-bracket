@@ -1,7 +1,9 @@
 <html>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <head>
     <style>
+
         .nav-bar {
             width: 100%;
             background-color: white;
@@ -22,7 +24,6 @@
             left: 0;
             top: 0;
             color: black;
-
         }
 
         .header-img {
@@ -43,7 +44,6 @@
         .info {
             background-color: #011f40;
             color: white;
-
             padding: 5pt;
         }
 
@@ -57,6 +57,7 @@
             text-align: center;
             position: relative;
         }
+
         .info-countdown {
             display: flex;
             flex-direction: column;
@@ -74,6 +75,21 @@
             font-size: 6vw;
         }
 
+        .votes {
+            position: relative;
+            z-index: 1;
+            color: white;
+            border-color: black;
+            text-shadow: 1px 0 0;
+            font-size: 6vw;
+            bottom: 455px;
+        }
+
+        .w3-container {
+            position: relative;
+            bottom: 450px;
+        }
+
         .team-selection {
             background-color: lightgray;
             color: white;
@@ -86,34 +102,28 @@
             display: flex;
             flex-direction: row;
             align-content: stretch;
-
         }
 
         .team-pictures {
             display: flex;
             flex-direction: column;
-        
             align-items: center;
             justify-content: space-around;
             height: 100%
         }
 
         .team-choice {
-
         }
+
         .team-img {
             width: 60%;
             align-self: center;
-            border-radius:50%;
-        
+            border-radius: 50%;
         }
     </style>
 </head>
 
 <body>
-    <div class="nav-bar">
-        Header
-    </div>
     <div class="header">
         <div class="team-name"> {{ name }} </div>
         {% load static %}
@@ -121,7 +131,7 @@
 
 
     </div>
-    <div class = "main">
+    <div class="main">
         <div class="info-countdown">
             <div class="info">
                 <div style="font-size: 4vw; font-weight: bold;">Campaign Information</div>
@@ -129,24 +139,35 @@
             </div>
 
             <div class="countdown">
-                <div class="countdown-info"> With {{ deadline|timeuntil }} remaining:
+                <div class="countdown-info">
+                    With {{ deadline|timeuntil }} remaining:
 
                 </div>
+
                 {% load static %}
                 <img src="{% static "stopclock.jpg" %}" class="stopclock-img" alt="Stopclock">
+
+                <div class="w3-container">
+                    <div class="w3-light-grey">
+                        <div class="w3-red" style="height:24px;width:{{votecountPercent}}%"></div>
+                    </div><br>
+                </div>
+                <div class="votes">
+                    <div style="font-size: 2vw; font-weight: bold;"><span style="color: #ff2323">{{votecount}}</span> voter registration of 100 goal</div>
+                </div>
             </div>
-        </div>
-    <div class="team-selection">
-        <div> Pick your team </div>
-        <div class = "team-pictures">
-            {% for team in teams.all %}
+            </div>
+        <div class="team-selection">
+            <div> Pick your team </div>
+            <div class="team-pictures">
+                {% for team in teams.all %}
                 <img src="{% static "zion.jpg" %}" class="team-img" alt="Zion">
                 <!-- <div class = "team-choice">{{ team.name }}</div> -->
-            {% endfor %}
-        
+                {% endfor %}
+
+            </div>
         </div>
     </div>
-</div>
 
 
 
