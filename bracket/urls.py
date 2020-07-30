@@ -7,5 +7,6 @@ urlpatterns = [
     path('panel', views.panel, name="panel"),
     path('team/<slug:name>', views.team, name="teams"),
     path('matchup/<slug:id>', views.matchup, name="matchup"),
-    path('campaign/<slug:id>', views.campaign, name="campaign")
+    path('campaign/<slug:id>', views.campaign, name="campaign"),
+    path('teamslist', views.teamslist, name="teamslist")
 ]
