@@ -20,18 +20,18 @@
 
     <div class="challenge">
         <div class="team">
-            <a class="team-link" href="/team/zion"></a>
+            <a class="team-link" href="/team/{{ team1 }}"></a>
             <div class="team-name">Team {{ team1 }} </div>
-            <img src="{% static "zion.jpg" %}" class="team-img" alt="team">
+            <img src="/static/{{team1.name}}.jpg" class="team-img" alt="team">
             <div class="votes">{{ team1.vote_count }} </div>
         </div>
         <div class="divider">
 
         </div>
         <div class="team">
-            <a class="team-link" href="/team/reggie"></a>
+            <a class="team-link" href="/team/{{ team2 }}"></a>
             <div class="team-name">Team {{ team2 }} </div>
-            <img src="{% static "reggie.jpg" %}" class="team-img" alt="team">
+            <img src="/static/{{team2.name}}.jpg" class="team-img" alt="team">
             <div class="votes">{{ team2.vote_count }}</div>
         </div>
     </div>

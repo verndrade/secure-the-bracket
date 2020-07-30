@@ -159,12 +159,10 @@
                 <p style="font-size: 2.5vw; padding: 5pt"> {{ info }} </p>
             </div>
 
-            <div class="countdown">
+            <div class="countdown" style="border:solid white">
                 <div class="countdown-info">
                     With {{ deadline|timeuntil }} remaining:
-
                 </div>
-
                 {% load static %}
                 <img src="{% static "stopclock.jpg" %}" class="stopclock-img" alt="Stopclock">
 
@@ -174,12 +172,11 @@
                     </div><br>
                 </div>
                 <div class="votes">
-                    <div style="font-size: 2vw; font-weight: bold;"><span style="color: #ff2323">{{votecount}}</span>
-                        voter registration of 100 goal</div>
+                    <div style="font-size: 2vw; font-weight: bold;"><span style="color: #ff2323">{{votecount}}</span> voter registration of 100 goal</div>
                 </div>
             </div>
         </div>
-        <div class="team-selection">
+        <div class="team-selection" style="border:solid white">
             Pick your team
             <div class="team-pictures">
                 {% for team in teams %}
