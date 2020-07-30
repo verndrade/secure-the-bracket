@@ -78,21 +78,26 @@
 }
 .info
 {
-	background-color: #011f40;
 	color: white;
-	padding: 5pt;
+	font-size: 3vw;
+	text-align: center;
 }
 .info-countdown
 {
 	align-content: flex-start;
 	display: flex;
 	flex-direction: column;
+	color: white;
+	font-size: 3vw;
+	text-align: center;
+	width: 50%;
 }
 .main
 {
 	align-content: stretch;
 	display: flex;
 	flex-direction: row;
+	width: 100%;
 }
 .middle
 {
@@ -133,7 +138,7 @@
 {
 	position: relative;
 	text-align: center;
-    width: 24%;
+    width: 40%;
 }
 .team-img
 {
@@ -177,7 +182,6 @@
 	opacity: 90%;
     position: absolute;
     top: 40%;
-	text-shadow: 1px 0 0;
     width: 85%;
 }
 .team-pictures
@@ -193,7 +197,7 @@
 	color: white;
 	font-size: 3vw;
 	text-align: center;
-    width: 100%;
+	width: 50%;
 }
 .timer
 {
