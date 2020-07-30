@@ -146,12 +146,7 @@
 
 <body>
     {% include "./nav.html" %}
-    <div class="header">
-        {% load static %}
-        <img src="{% static "campaignheaderphoto.jpg" %}" class="header-img" alt="Blank bracket">
-
-
-    </div>
+    {% include "index.html" %}
     <div class="main">
         <div class="info-countdown">
             <div class="info">
@@ -166,7 +161,7 @@
                 </div>
 
                 {% load static %}
-                <img src="{% static "stopclock.jpg" %}" class="stopclock-img" alt="Stopclock">
+                <img src="{% static 'stopclock.jpg' %}" class="stopclock-img" alt="Stopclock">
 
                 <div class="w3-container">
                     <div class="w3-light-grey">
