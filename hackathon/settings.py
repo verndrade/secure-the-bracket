@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'hackathon.wsgi.application'
 #Database
 #https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-#comment for local development
+#comment for local development 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
