@@ -133,3 +133,6 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, )
+MEDIA_URL = '/uploads/'
