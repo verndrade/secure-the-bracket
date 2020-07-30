@@ -19,6 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('sudo/', admin.site.urls),
     path('', include('bracket.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler404 = 'bracket.views.view404'
