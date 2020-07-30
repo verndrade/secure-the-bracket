@@ -1,8 +1,54 @@
-<html>
-    <head>
-        
-    </head>
-    <body>
-        {{ team.name }} -- {{ team.vote_count }}
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+ <title> {{team.name}}'s Team </title> 
+{% endblock %}
+
+{% block body %}
+<div class="countdown">
+    <div class="round">
+        <h1>First Round</h1>
+    </div>
+    <div class="timer">
+
+        <h1> Time Left: {{ deadline|timeuntil }}</h1>
+
+        <!-- {{ team.name }} -- {{ team.vote_count }} -->
+    </div>
+</div>
+
+<div class="middle">
+    <div class="action" onclick="toggleVisibility('register')">
+        Register to Vote
+    </div>
+    <div class="action" onclick="toggleVisibility('absentee')">
+        Request Absentee Ballot
+    </div>
+
+    <div class="action" onclick="toggleVisibility('verify')">
+        Check Registration
+    </div>
+</div>
+
+<script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
+<div class="forms voteamerica-embed hideDiv " data-subscriber="securetheballot" id="register" data-tool="register"></div>
+
+<script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
+<div class="forms voteamerica-embed hideDiv " data-subscriber="securetheballot" id="absentee" data-tool="absentee"></div>
+
+<script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
+<div class="forms voteamerica-embed hideDiv forms" data-subscriber="securetheballot" id="verify" data-tool="verify"></div>
+
+<script> 
+    var shown = null
+    function toggleVisibility(name) {
+        if(shown){
+            $(shown).toggleClass('hideDiv')
+        }
+
+        name = document.getElementById(name)
+        $(name).toggleClass('hideDiv')
+        shown = name;
+    }
+</script> 
+{% endblock %}

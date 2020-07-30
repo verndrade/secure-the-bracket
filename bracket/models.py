@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 class Team(models.Model):
     name = models.CharField(max_length=200, unique=True)
-    vote_count = models.IntegerField()
+    vote_count = models.IntegerField(default=0)
 
     def clean(self):
         if self.vote_count < 0:

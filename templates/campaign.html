@@ -31,14 +31,15 @@
             text-align: center;
         }
 
-        .team-name {
-            position: absolute;
-            left: 5%;
-            top: 5%;
-            color: white;
+        .team-name-campaign 
+        {
+            background-color: grey;
             border-color: black;
-            text-shadow: 1px 0 0;
-            font-size: 6vw;
+            color: white;
+            opacity: 90%;
+            position: absolute;
+            top: 40%;
+            width: 85%;
         }
 
         .info {
@@ -92,34 +93,53 @@
             bottom: 40%;
         }
 
-        .team-selection {
-            background-color: lightgray;
-            color: white;
-            text-align: center;
-            width: 60%;
-            font-size: 3vw;
-        }
-
         .main {
             display: flex;
             flex-direction: row;
             align-content: stretch;
         }
 
-        .team-pictures {
-            display: flex;
-            flex-direction: column;
+        .team-pictures
+        {
             align-items: center;
+            display: flex;
+            flex-direction: row;
             justify-content: space-around;
-            height: 100%
+            flex-wrap: wrap;
+        }
+        .team-selection
+        {
+            color: white;
+            font-size: 3vw;
+            text-align: center;
+            width: 50%;
         }
 
         .team-choice {}
 
-        .team-img {
-            width: 60%;
+        .team-img-campaign {
+            width: 100%;
             align-self: center;
             border-radius: 50%;
+        }
+
+        .team-campaign
+        {
+            position: relative;
+            text-align: center;
+            width: 40%;
+        }
+
+        .team-name-campaign 
+        {
+            background-color: grey;
+            border-color: black;
+            color: white;
+            font-size: 1.5vw;
+            opacity: 90%;
+            position: absolute;
+            top: 40%;
+            width: 100%;
         }
     </style>
 </head>
@@ -127,7 +147,6 @@
 <body>
     {% include "./nav.html" %}
     <div class="header">
-        <div class="team-name"> {{ name }} </div>
         {% load static %}
         <img src="{% static "campaignheaderphoto.jpg" %}" class="header-img" alt="Blank bracket">
 
@@ -161,18 +180,18 @@
             </div>
         </div>
         <div class="team-selection">
-            <div> Pick your team </div>
+            Pick your team
             <div class="team-pictures">
-                {% for team in teams.all %}
-                <img src="{% static "zion.jpg" %}" class="team-img" alt="Zion">
+                {% for team in teams %}
+                <div class="team-campaign">
+                    <div class="team-name-campaign">Team {{ team.name }} </div>
+                    <a href="/team/{{team.name}}"><img src="/static/{{team.name}}.jpg" class="team-img-campaign" alt="A picture of {{team.name}}"></a>
+                </div>
                 <!-- <div class = "team-choice">{{ team.name }}</div> -->
                 {% endfor %}
-
             </div>
         </div>
     </div>
-
-
 
 
 </body>
