@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'hackathon.wsgi.application'
 #https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 #comment for local development
-""" DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('DATABASE_NAME'),
@@ -84,15 +84,15 @@ WSGI_APPLICATION = 'hackathon.wsgi.application'
         'HOST': os.getenv('DATABASE_HOST'),
         'PORT': os.getenv('DATABASE_PORT')
     }
-}  """
+}
 
 #uncomment for local development
-DATABASES = {
+"""DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.sqlite3',
          'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
      }
-}  
+}  """
 
 
 # Password validation
