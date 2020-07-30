@@ -57,10 +57,12 @@
             text-align: center;
             position: relative;
         }
+
         .info-countdown {
             display: flex;
             flex-direction: column;
             align-content: flex-start;
+
         }
 
 
@@ -72,13 +74,14 @@
             border-color: black;
             text-shadow: 1px 0 0;
             font-size: 6vw;
+
         }
 
         .team-selection {
             background-color: lightgray;
             color: white;
             text-align: center;
-            width: 60%;
+            width: 80%;
             font-size: 3vw;
         }
 
@@ -92,28 +95,24 @@
         .team-pictures {
             display: flex;
             flex-direction: column;
-        
             align-items: center;
             justify-content: space-around;
             height: 100%
         }
 
-        .team-choice {
+        .team-choice {}
 
-        }
         .team-img {
-            width: 60%;
+            width: 50%;
             align-self: center;
-            border-radius:50%;
-        
+            border-radius: 50%;
+
         }
     </style>
 </head>
 
 <body>
-    <div class="nav-bar">
-        Header
-    </div>
+    {% include './nav.html' %}
     <div class="header">
         <div class="team-name"> {{ name }} </div>
         {% load static %}
@@ -121,7 +120,7 @@
 
 
     </div>
-    <div class = "main">
+    <div class="main">
         <div class="info-countdown">
             <div class="info">
                 <div style="font-size: 4vw; font-weight: bold;">Campaign Information</div>
@@ -136,19 +135,17 @@
                 <img src="{% static "stopclock.jpg" %}" class="stopclock-img" alt="Stopclock">
             </div>
         </div>
-    <div class="team-selection">
-        <div> Pick your team </div>
-        <div class = "team-pictures">
-            {% for team in teams.all %}
+        <div class="team-selection">
+            <div> Pick your team </div>
+            <div class="team-pictures">
+                {% for team in teams.all %}
                 <img src="{% static "zion.jpg" %}" class="team-img" alt="Zion">
                 <!-- <div class = "team-choice">{{ team.name }}</div> -->
-            {% endfor %}
-        
+                {% endfor %}
+
+            </div>
         </div>
     </div>
-</div>
-
-
 
 
 </body>

@@ -8,15 +8,13 @@
         }
 
         .header {
-            padding-top: 5%;
             position: relative;
             text-align: center;
-            left: 0;
-            top: 0;
+    
         }
 
         .header-img {
-            width: 95%
+            width: 100%
         }
 
         .middle {
@@ -115,6 +113,7 @@
 </head>
 
 <body>
+    {% include './nav.html' %}
     <div class="header">
         {% load static %}
         <img src="{% static "header.png" %}" class="header-img" alt="Blank bracket">
