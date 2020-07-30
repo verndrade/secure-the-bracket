@@ -1,0 +1,178 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<head>
+    <style>
+       <style>
+        .nav-bar {
+            width: 100%;
+            background-color: white;
+            padding: 2pt;
+        }
+
+        body {
+            background-color: #011f40;
+        }
+
+    
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            left: 0;
+            top: 0;
+            color: black;
+        }
+
+        .header-img {
+            width: 100%;
+            text-align: center;
+        }
+
+        .team-name-campaign 
+        {
+            background-color: grey;
+            border-color: black;
+            color: white;
+            opacity: 90%;
+            position: absolute;
+            top: 40%;
+            width: 85%;
+        }
+
+        .info {
+            background-color: #011f40;
+            color: white;
+            padding: 5pt;
+        }
+
+        h2 {
+            padding: 0;
+            margin: 0;
+        }
+
+        .stopclock-img {
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .info-countdown {
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+        }
+
+
+        .countdown-info {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            color: white;
+            border-color: black;
+            text-shadow: 1px 0 0;
+            font-size: 4vw;
+            top: 20%
+        }
+
+        .votes {
+            position: relative;
+            z-index: 1;
+            color: white;
+            border-color: black;
+            text-shadow: 1px 0 0;
+            font-size: 6vw;
+            bottom: 30%;
+            text-align: center;
+        }
+
+        .w3-container {
+            position: relative;
+            bottom: 40%;
+        }
+
+        .main {
+            display: flex;
+            align-content: space-around;
+            align-items: flex-start;
+        
+            justify-content: center;
+
+    
+            width: 100%;
+        }
+
+        .team-pictures
+        {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .team-selection
+        {
+            color: white;
+            font-size: 3vw;
+            text-align: center;
+            width: 50%;
+        }
+
+        .team-choice {}
+
+        .team-img-campaign {
+            width: 100%;
+            align-self: center;
+            border-radius: 50%;
+        }
+
+        .team-campaign
+        {
+            position: relative;
+            text-align: center;
+            width: 40%;
+        }
+
+        .team-name-campaign 
+        {
+            background-color: grey;
+            border-color: black;
+            color: white;
+            font-size: 1.5vw;
+            opacity: 90%;
+            position: absolute;
+            top: 40%;
+            width: 100%;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    {% include "./nav.html" %}
+
+    <div class="main">
+        <div class="label">Pick your team </div>
+        <div class="team-selection">
+            Pick your team
+            <div class="team-pictures">
+                {% for team in teams %}
+                <div class="team-campaign">
+                    <div class="team-name-campaign">Team {{ team.name }} </div>
+                    <a href="/team/{{team.name}}"><img src="/static/{{team.name}}.jpg" class="team-img-campaign" alt="A picture of {{team.name}}"></a>
+                </div>
+                <!-- <div class = "team-choice">{{ team.name }}</div> -->
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
