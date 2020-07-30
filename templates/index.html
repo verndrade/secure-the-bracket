@@ -3,9 +3,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>March Madness Brackets</title>
-    <h1>{{name}}</h1>
-    <script src="https://d3js.org/d3.v3.js"></script>
+    <title>{{name}}'s Campaign</title>
     <style type="text/css">
       h1 {
         width: 500px;
@@ -35,12 +33,14 @@
     </style>
   </head>
   <body>
-    <div id="chart" style= "margin:auto"></div>
+    <h1>{{name}}'s Campaign</h1>
+    <script src="https://d3js.org/d3.v3.js"></script>
+    <div id="chart"></div>
     <script type="text/javascript">
-      var margin = { top: 50, right: 5, bottom: 10, left: 5 },
-        width = 1200 - margin.left - margin.right,
+      var margin = { top: 5, right: 5, bottom: 5, left: 5 },
+        width = window.innerWidth,
         halfWidth = width / 2,
-        height = 600 - margin.top - margin.bottom,
+        height = 600,
         i = 0,
         duration = 500,
         root;
