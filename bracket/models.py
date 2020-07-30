@@ -21,3 +21,10 @@ class Matchup(models.Model):
     def clean(self):
         if self.team1 == self.team2:
             raise ValidationError('Teams should be different.')
+
+
+class Campaign(models.Model):
+    teams = models.ManyToManyField(Team)
+    info = models.TextField(max_length=500)
+    name = models.TextField(max_length=200)
+    deadline = models.DateTimeField(default=datetime(2020, 11, 3, 1))
