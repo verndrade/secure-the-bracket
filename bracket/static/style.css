@@ -33,6 +33,7 @@
 	font-size: 2vw;
 	padding: 1%;
 }
+
 .countdown-info
 {
 	border-color: black;
@@ -121,7 +122,7 @@
 	background-color: #ff2323;
 	color: white;
 	text-align: center;
-	width: 70%;
+	width: 50%;
 }
 .stopclock-img
 {
