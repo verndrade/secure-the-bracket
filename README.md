@@ -16,3 +16,5 @@ For initial setup and for any changes to the models data, run:
 - `python manage.py migrate`  
 - `python manage.py runserver`  
 
+To load test data, run
+- `python manage.py loaddata bracket`
