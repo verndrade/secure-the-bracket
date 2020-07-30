@@ -41,4 +41,9 @@ def campaign(request, id):
 
     if votecount > 100:
         votecount = 100
+        
     return render(request, "campaign.html", {"id": id, "teams": campaign.teams.all(), "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), 'votecountPercent': votecount, 'votecount': votecount})
+
+def teamslist(request):
+    teams = Team.objects.all()
+    return render(request, "teamslist.html", {"teams": teams})

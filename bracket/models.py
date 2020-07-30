@@ -5,6 +5,8 @@ from datetime import datetime, timedelta
 class Team(models.Model):
     name = models.CharField(max_length=200, unique=True)
     vote_count = models.IntegerField(default=0)
+    team_image = models.ImageField(upload_to='bracket/static/uploads', blank=True, null=True, default = 'bracket/static/default-team-img.jpg')
+
 
     def clean(self):
         if self.vote_count < 0:
