@@ -180,7 +180,11 @@
                 {% for team in teams %}
                 <div class="team-campaign">
                     <div class="team-name-campaign">Team {{ team.name }} </div>
-                    <a href="/team/{{team.name}}"><img src="/static/{{team.name}}.jpg" class="team-img-campaign" alt="A picture of {{team.name}}"></a>
+                    <a href="/team/{{team.name}}">
+                        {% if team.team_image %}
+                        <img src= "{{ team.team_image.url }}" class="team-img-campaign" alt="A picture of {{team.name}}">
+                        {% endif %}
+                    </a>
                 </div>
                 <!-- <div class = "team-choice">{{ team.name }}</div> -->
                 {% endfor %}
