@@ -18,22 +18,36 @@
     </div>
 </div>
 
-    <div class="challenge">
-        <div class="team">
-            <a class="team-link" href="/team/{{ team1 }}"></a>
-            <div class="team-name">Team {{ team1 }} </div>
-            <img src="{{ team1.team_image.url }}" class="team-img" alt="team">
-            <div class="votes">{{ team1.vote_count }} </div>
-        </div>
-        <div class="divider">
+<div class="challenge">
+    <div class="team">
+        <figure>
 
-        </div>
-        <div class="team">
-            <a class="team-link" href="/team/{{ team2 }}"></a>
-            <div class="team-name">Team {{ team2 }} </div>
-            <img src="{{ team2.team_image.url }}" class="team-img" alt="team">
-            <div class="votes">{{ team2.vote_count }}</div>
-        </div>
+            <a class="team-link" href="/team/{{ team1 }}"></a>
+            <figcaption style= "font-size: 3vw; color: white;">Team {{ team1.name }}</figcaption>
+            {% if team1.team_image %}
+            <img src="{{ team1.team_image.url }}" class="team-img" alt="A picture of {{team1.name}}">
+            {% else %}
+            <img src="{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team1.name}}">
+            {% endif %}
+            <div class="votes">{{ team1.vote_count }} </div>
+        </figure>
     </div>
+    <div class="divider">
+
+    </div>
+    <div class="team">
+        <figure>
+
+            <a class="team-link" href="/team/{{ team2 }}"></a>
+            <figcaption style= "font-size: 3vw; color: white;">Team {{ team2.name }}</figcaption>
+            {% if team2.team_image %}
+            <img src="{{ team2.team_image.url }}" class="team-img" alt="A picture of {{team2.name}}">
+            {% else %}
+            <img src="{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team2.name}}">
+            {% endif %}
+            <div class="votes">{{ team1.vote_count }} </div>
+        </figure>
+    </div>
+</div>
 </div>
 {% endblock %}
