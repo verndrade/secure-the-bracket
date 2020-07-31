@@ -120,6 +120,16 @@
             font-size: 6vw;
         }
 
+        .votesReg {
+            position: absolute;
+            top: 70%;
+            left: 25%;
+            color: white;
+            border-color: black;
+            text-shadow: 1px 2px black;
+            font-size: 2vw;
+        }
+
         .team-img {
             width: 100%
         }
@@ -145,28 +155,28 @@
     <div class="middle">
         <div class="link">
             <a href="https://www.securetheballot.org/absentee" style="text-decoration: none;">
-                <p>REQUEST ABSENTEE BALLOT</p>
+                <p style="font-family:Cambria;">REQUEST ABSENTEE BALLOT</p>
             </a>
         </div>
         <div class="link">
             <a href="https://www.securetheballot.org/wheretovote" style="text-decoration: none;">
-                <p>FIND MY POLLING PLACE</p>
+                <p style="font-family:Cambria;">FIND MY POLLING PLACE</p>
             </a>
         </div>
 
         <div class="link">
             <a href="https://www.securetheballot.org/verify?utm_source=website&utm_medium=website&utm_campaign=website" style="text-decoration: none;">
-                <p>VERIFY MY SIGN UP</p>
+                <p style="font-family:Cambria;">VERIFY MY SIGN UP</p>
             </a>
         </div>
     </div>
     <div class="countdown">
         <div class="round">
-            <h1>First Round</h1>
+            <h1 style="font-family:monospace;">First Round</h1>
         </div>
         <div class="timer">
 
-            <h1> Time Left: {{ deadline|timeuntil }}</h1>
+            <h1 style="font-family:monospace;"> Time Left: {{ deadline|timeuntil }}</h1>
 
             <!-- {{ team.name }} -- {{ team.vote_count }} -->
         </div>
@@ -177,8 +187,8 @@
         <div class="team">
             <div class="team-name">Team: {{ team1 }} </div>
             <img src="{% static "zion.jpg" %}" class="team-img" alt="team">
-            <div class="votes">{{ team1.vote_count }} </div>
-
+            <div class="votes" style="font-weight: bold;">{{ team1.vote_count }} </div>
+            <div class="votesReg" style="font-family:Cambria;">VOTERS REGISTERED</div>
         </div>
         <div class="divider">
 
@@ -186,7 +196,8 @@
         <div class="team">
             <div class="team-name">Team: {{ team2 }} </div>
             <img src="{% static "reggie.jpg" %}" class="team-img" alt="team">
-            <div class="votes">{{ team2.vote_count }}</div>
+            <div class="votes" style="font-weight: bold;">{{ team2.vote_count }}</div>
+            <div class="votesReg" style="font-family:Cambria;">VOTERS REGISTERED</div>
         </div>
 
     </div>

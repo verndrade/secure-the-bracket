@@ -83,13 +83,12 @@
             border-color: black;
             text-shadow: 1px 0 0;
             font-size: 6vw;
-            bottom: 30%;
-            text-align: center;
+            bottom: 43%;
         }
 
         .w3-container {
             position: relative;
-            bottom: 40%;
+            bottom: 50%;
         }
 
         .team-selection {
@@ -127,7 +126,7 @@
 <body>
     {% include "./nav.html" %}
     <div class="header">
-        <div class="team-name"> {{ name }} </div>
+        <div style="font-family:Tahoma;" class="team-name"> {{ name }} </div>
         {% load static %}
         <img src="{% static "campaignheaderphoto.jpg" %}" class="header-img" alt="Blank bracket">
 
@@ -136,13 +135,13 @@
     <div class="main">
         <div class="info-countdown">
             <div class="info">
-                <div style="font-size: 4vw; font-weight: bold;">Campaign Information</div>
-                <p style="font-size: 2.5vw; padding: 5pt"> {{ info }} </p>
+                <div style="font-family:'Agency FB'; font-size: 4vw; font-weight: bold;">Campaign Information</div>
+                <p style="font-family:'Calisto MT'; font-size: 2vw; padding: 5pt"> {{ info }} </p>
             </div>
 
             <div class="countdown">
-                <div class="countdown-info">
-                    With {{ deadline|timeuntil }} remaining:
+                <div style="font-family:monospace" class="countdown-info">
+                    With <span style="font-weight: bold;">{{ deadline|timeuntil }}</span> remaining:
 
                 </div>
 
@@ -155,13 +154,13 @@
                     </div><br>
                 </div>
                 <div class="votes">
-                    <div style="font-size: 2vw; font-weight: bold;"><span style="color: #ff2323">{{votecount}}</span>
-                        voter registration of 100 goal</div>
+                    <div style="font-size: 2.5vw; font-family:'Global Monospace'"><span style="font-weight: bold; color: #ff2323">{{votecount}}</span>
+                        voter registration of <span style="font-weight: bold;">100 goal</span></div>
                 </div>
             </div>
         </div>
         <div class="team-selection">
-            <div> Pick your team </div>
+            <div style="font-family:'Agency FB'; font-weight: bold;"> Pick your team </div>
             <div class="team-pictures">
                 {% for team in teams.all %}
                 <img src="{% static "zion.jpg" %}" class="team-img" alt="Zion">
