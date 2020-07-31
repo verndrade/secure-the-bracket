@@ -39,5 +39,10 @@ def campaign(request, id):
     for team in campaign.teams.all():
         votecount += team.vote_count
 
-    votecountPercent = votecount / 100
-    return render(request, "campaign.html", {"id": id, "teams": campaign.teams, "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline, 'votecountPercent': votecountPercent, 'votecount': votecount})
+    if votecount > 100:
+        votecount = 100
+    return render(request, "campaign.html", {"id": id, "teams": campaign.teams.all(), "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline, 'votecountPercent': votecount, 'votecount': votecount})
+
+def teamslist(request):
+    teams = Team.objects.all()
+    return render(request, "teamslist.html", {"teams": teams})

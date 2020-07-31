@@ -1,20 +1,20 @@
-<html>
-    <head>
-        
-    </head>
-    <body>
-        <h1>Admin Control Panel</h1>
+{% extends 'base.html' %}
 
-        <h2>Teams:</h2>
-        {% for team in teams %}
-            {{team.name}} -- {{team.vote_count}} <br>
-        {% endfor %}
+{% block head %}
+ <title> Admin Panel </title> 
+{% endblock %}
 
-        <br>
-        <h2>Matchup:</h2>
-        {% for matchup in matchups %}
-            <a href="/team/{{matchup.team1}}">{{matchup.team1}}</a> vs <a href="/team/{{matchup.team2}}">{{matchup.team2}}</a>
-        {% endfor %}
+{% block body %}
+<h1>Admin Control Panel</h1>
 
-    </body>
-</html>
+<h2>Teams:</h2>
+    {% for team in teams %}
+        {{team.name}} -- {{team.vote_count}} <br>
+    {% endfor %}
+
+    <br>
+    <h2>Matchup:</h2>
+    {% for matchup in matchups %}
+        <a href="/team/{{matchup.team1}}">{{matchup.team1}}</a> vs <a href="/team/{{matchup.team2}}">{{matchup.team2}}</a>
+    {% endfor %}
+{% endblock %}
