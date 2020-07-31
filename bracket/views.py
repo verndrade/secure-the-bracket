@@ -46,4 +46,4 @@ def campaign(request, id):
 
 def teamslist(request):
     teams = Team.objects.all()
-    return render(request, "teamslist.html", {"teams": teams})
+    return render(request, "teamslist.html", {"teams": teams, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(),})
