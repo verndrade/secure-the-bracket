@@ -176,16 +176,14 @@
                 {% for team in teams %}
                 <div class="team-campaign">
                     <figure>
-                    <a href="/team/{{team.name}}">
-                        {% if team.team_image %}
-                            <img src= "{{ team.team_image.url }}" class="team-img-campaign" alt="A picture of {{team.name}}">
-                        {% else %}
-                            <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team.name}}">
-                        {% endif %}
-
-              
-                    <figcaption>Team {{ team.name }}</figcaption>
-                </a>
+                        <a href="/team/{{team.name}}" style="text-decoration: none;">
+                            {% if team.team_image %}
+                                <img src= "{{ team.team_image.url }}" class="team-img-campaign" alt="A picture of {{team.name}}">
+                            {% else %}
+                                <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team.name}}">
+                            {% endif %}
+                        <figcaption style="font-size:1vw; background-color: grey;">Team {{ team.name }}</figcaption>
+                    </a>
                 </figure>
                 </div>
                 <!-- <div class = "team-choice">{{ team.name }}</div> -->
