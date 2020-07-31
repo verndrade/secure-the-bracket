@@ -7,6 +7,19 @@
 {% block body %}
 <h1 style="text-align: center; color: white;"> {{team.name}} needs your help!</h1>
 <h2 style="text-align: center; color: white;"> If you are eligible to vote then you can help {{team.name}} win by completing a form below</h1>
+<div class="countdown">
+    <img src="{{ team.team_image.url }}" class = "round"
+    style = "width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
+    <div class="round">
+        <h1>First Round</h1>
+    </div>
+    <div class="timer">
+
+        <h1> Time Left: {{ deadline|timeuntil }}</h1>
+
+        <!-- {{ team.name }} -- {{ team.vote_count }} -->
+    </div>
+</div>
 
 <div class="middle">
     <div class="action" onclick="toggleVisibility('register')">

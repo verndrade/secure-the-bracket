@@ -146,12 +146,7 @@
 
 <body>
     {% include "./nav.html" %}
-    <div class="header">
-        {% load static %}
-        <img src="{% static "campaignheaderphoto.jpg" %}" class="header-img" alt="Blank bracket">
-
-
-    </div>
+    {% include "index.html" %}
     <div class="main">
         <div class="info-countdown">
             <div class="info">
@@ -159,12 +154,12 @@
                 <p style="font-size: 2.5vw; padding: 5pt"> {{ info }} </p>
             </div>
 
-            <div class="countdown" style="border:solid white">
+            <div class="countdown">
                 <div class="countdown-info">
                     With {{ deadline|timeuntil }} remaining:
                 </div>
                 {% load static %}
-                <img src="{% static "stopclock.jpg" %}" class="stopclock-img" alt="Stopclock">
+                <img src="{% static 'stopclock.jpg' %}" class="stopclock-img" alt="Stopclock">
 
                 <div class="w3-container">
                     <div class="w3-light-grey">
@@ -176,13 +171,17 @@
                 </div>
             </div>
         </div>
-        <div class="team-selection" style="border:solid white">
+        <div class="team-selection">
             Pick your team
             <div class="team-pictures">
                 {% for team in teams %}
                 <div class="team-campaign">
                     <div class="team-name-campaign">Team {{ team.name }} </div>
-                    <a href="/team/{{team.name}}"><img src="{{team.team_image.url}}" class="team-img-campaign" alt="A picture of {{team.name}}"></a>
+                    <a href="/team/{{team.name}}">
+                        {% if team.team_image %}
+                            <img src= "{{ team.team_image.url }}" class="team-img-campaign" alt="A picture of {{team.name}}">
+                        {% endif %}
+                    </a>
                 </div>
                 <!-- <div class = "team-choice">{{ team.name }}</div> -->
                 {% endfor %}

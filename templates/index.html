@@ -1,15 +1,14 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <title>March Madness Brackets</title>
-    <h1>March Madness Brackets</h1>
-    <script src="https://d3js.org/d3.v3.js"></script>
+    <title>{{name}}'s Campaign</title>
     <style type="text/css">
       h1 {
         width: 500px;
-        margin: 0 auto;
-        background: gray;
+        margin: 20 auto;
+        color: white;
         text-align: center;
         font: sans-serif;
       }
@@ -31,21 +30,17 @@
         stroke: white;
         stroke-width: 5px;
       }
-      body {
-        background: url("stopclock.jpg") no-repeat #000;
-        background-size: cover;
-        min-height: 100%;
-        margin: 0;
-      }
     </style>
   </head>
   <body>
+    <h1>{{name}}'s Campaign</h1>
+    <script src="https://d3js.org/d3.v3.js"></script>
     <div id="chart"></div>
     <script type="text/javascript">
-      var margin = { top: 30, right: 5, bottom: 10, left: 5 },
-        width = 1200 - margin.left - margin.right,
+      var margin = { top: 5, right: 5, bottom: 5, left: 5 },
+        width = window.innerWidth,
         halfWidth = width / 2,
-        height = 600 - margin.top - margin.bottom,
+        height = 600,
         i = 0,
         duration = 500,
         root;
@@ -112,7 +107,8 @@
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
       // .attr('transform', `rotate(90 ${halfWidth} ${height / 2})`);
 
-      d3.json("src/bracket.json", function(json) {
+      
+      d3.json("{% static 'bracket.json'%}", function(json) {
         root = json;
         root.x0 = height / 2;
         root.y0 = width / 2;
@@ -140,6 +136,7 @@
         rebuildChildren(root);
         root.isRight = false;
         update(root);
+        
       });
 
       var toArray = function(item, arr) {

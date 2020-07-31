@@ -2,21 +2,21 @@
 {% load static %}
 
 {% block head %}
- <title> {{ team1 }} vs. {{ team2 }} </title> 
+<title> {{ team1 }} vs. {{ team2 }} </title>
 {% endblock %}
 
 {% block body %}
-    <div class="countdown">
-        <div class="round">
-            <h1>First Round</h1>
-        </div>
-        <div class="timer">
-
-            <h1> Time Left: {{ deadline|timeuntil }}</h1>
-
-            <!-- {{ team.name }} -- {{ team.vote_count }} -->
-        </div>
+<div class="countdown">
+    <div class="round">
+        <h1>First Round</h1>
     </div>
+    <div class="timer">
+
+        <h1> Time Left: {{ deadline|timeuntil }}</h1>
+
+        <!-- {{ team.name }} -- {{ team.vote_count }} -->
+    </div>
+</div>
 
     <div class="challenge">
         <div class="team">
@@ -35,4 +35,5 @@
             <div class="votes">{{ team2.vote_count }}</div>
         </div>
     </div>
+</div>
 {% endblock %}
