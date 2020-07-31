@@ -150,13 +150,14 @@
     <div class="main">
         <div class="info-countdown">
             <div class="info">
-                <div style="font-size: 4vw; font-weight: bold;">Campaign Information</div>
-                <p style="font-size: 2.5vw; padding: 5pt"> {{ info }} </p>
+                <div style="font-family:'Agency FB'; font-size: 4vw; font-weight: bold;">Campaign Information</div>
+                <p style="font-family:'Calisto MT'; font-size: 2vw; padding: 5pt"> {{ info }} </p>
             </div>
 
             <div class="countdown">
-                <div class="countdown-info">
-                    With {{ deadline|timeuntil }} remaining:
+                <div style="font-family:monospace" class="countdown-info">
+                    With <span style="font-weight: bold;">{{ deadline|timeuntil }}</span> remaining:
+
                 </div>
                 <img src="{% static 'stopclock.jpg' %}" class="stopclock-img" alt="Stopclock">
 
@@ -166,11 +167,12 @@
                     </div><br>
                 </div>
                 <div class="votes">
-                    <div style="font-size: 2vw; font-weight: bold;"><span style="color: #ff2323">{{votecount}}</span> voter registration of 100 goal</div>
+                    <div style="font-size: 2.5vw; font-family:'Global Monospace'"><span style="font-weight: bold; color: #ff2323">{{votecount}}</span>
+                        voter registrations of <span style="font-weight: bold;">100 goal</span></div>
                 </div>
             </div>
         </div>
-        <div class="team-selection">
+        <div style="font-family:'Agency FB'; font-weight: bold;" class="team-selection">
             Pick your team
             <div class="team-pictures">
                 {% for team in teams %}

@@ -8,11 +8,11 @@
 {% block body %}
 <div class="countdown">
     <div class="round">
-        <h1>First Round</h1>
+        <h1 style="font-family:monospace;">First Round</h1>
     </div>
     <div class="timer">
 
-        <h1> Time Left: {{ deadline|timeuntil }}</h1>
+            <h1 style="font-family:monospace;"> Time Left: {{ deadline|timeuntil }}</h1>
 
         <!-- {{ team.name }} -- {{ team.vote_count }} -->
     </div>
@@ -28,7 +28,8 @@
             {% else %}
             <img src="{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team1.name}}">
             {% endif %}
-            <div class="votes">{{ team1.vote_count }} </div>
+            <div class="votes" style="font-weight: bold;">{{ team1.vote_count }} </div>
+            <div class="votesReg" style="font-family:Cambria;">VOTERS REGISTERED</div>
         </figure>
     </div>
     <div class="divider">
@@ -44,7 +45,8 @@
             {% else %}
             <img src="{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team2.name}}">
             {% endif %}
-            <div class="votes">{{ team1.vote_count }} </div>
+            <div class="votes" style="font-weight: bold;">{{ team2.vote_count }} </div>
+            <div class="votesReg" style="font-family:Cambria;">VOTERS REGISTERED</div>
         </figure>
     </div>
 </div>
