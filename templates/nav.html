@@ -3,28 +3,24 @@
 <link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
 
 <nav class="navbar">
-    <div class="nav-logo">
-        <a href="https://www.securetheballot.org" class="logo">
-            <img src="{% static 'logo.png' %}" class="header-logo" alt="Secure the Ballot Logo">
-        </a>
-    </div>
     <div class="nav-links">
-        <div class="nav-item"><a href="/teamslist">Teams</a>
+        <div class="nav-item"><a href="/teamslist">Teams</a></div>
         <div class="dropdown">
             <button class="dropbtn">Campaign</button>
             <div class="dropdown-content">
-                <a href= "/campaign/1" >Campaign 1</a>
+                {% for campaign in campaigns %}
+                    <a href= "/campaign/{{campaign.pk}}" >{{campaign.name}}</a>
+                {% endfor %}
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Matchups</button>
-            <div class="dropdown-content">
-                <a href= "/matchup/1" >Matchup 1</a>
+            <div class="dropdown-content">    
+                {% for matchup in matchups %}   
+                    <a href= "/matchup/{{matchup.pk}}" >{{matchup.team1}} vs. {{matchup.team2}}</a>
+                {% endfor %}
             </div>
-         
         </div>
-       
         <!-- <div class="nav-item"><a href="https://www.securetheballot.org/">Register to vote</a> -->
-        </div>
     </div>
 </nav>
