@@ -1,7 +1,8 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
+{% load static %}
+<link rel="shortcut icon" href="{% static 'logo.png' type='image/x-icon' %}">
 <head>
     <style>
         .nav-bar {
@@ -158,7 +159,6 @@
                 <div class="countdown-info">
                     With {{ deadline|timeuntil }} remaining:
                 </div>
-                {% load static %}
                 <img src="{% static 'stopclock.jpg' %}" class="stopclock-img" alt="Stopclock">
 
                 <div class="w3-container">
