@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import *
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html", {'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all()})
+    return redirect('/campaign/1')
 
 def panel(request):
     if request.method == 'POST':
@@ -39,10 +39,11 @@ def campaign(request, id):
     for team in campaign.teams.all():
         votecount += team.vote_count
 
-    if votecount > 100:
-        votecount = 100
+    votecountPercent = votecount
+    if votecountPercent > 100:
+        votecountPercent = 100
         
-    return render(request, "campaign.html", {"id": id, "teams": campaign.teams.all(), "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), 'votecountPercent': votecount, 'votecount': votecount})
+    return render(request, "campaign.html", {"id": id, "teams": campaign.teams.all(), "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), 'votecountPercent': votecountPercent, 'votecount': votecount})
 
 def teamslist(request):
     teams = Team.objects.all()
