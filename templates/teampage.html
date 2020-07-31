@@ -1,24 +1,13 @@
 {% extends 'base.html' %}
 
 {% block head %}
- <title> {{team.name}}'s Team </title> 
+ <title> {{team.name}} </title> 
 {% endblock %}
 
 {% block body %}
-<div class="countdown">
-    <img src="{{ team.team_image.url }}" class = "round"
-    style = "width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
-    <div class="round">
-        <h1>First Round</h1>
-    </div>
-    <div class="timer">
-
-        <h1> Time Left: {{ deadline|timeuntil }}</h1>
-
-        <!-- {{ team.name }} -- {{ team.vote_count }} -->
-    </div>
-</div>
-
+<h1 style="text-align: center; color: white;"> {{team.name}} needs your help!</h1>
+<h2 style="text-align: center; color: white;"> Register to vote to help {{team.name}} win!</h2>
+    
 <div class="middle">
     <div class="action" onclick="toggleVisibility('register')">
         Register to Vote
@@ -40,6 +29,10 @@
 
 <script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
 <div class="forms voteamerica-embed hideDiv forms" data-subscriber="securetheballot" id="verify" data-tool="verify"></div>
+
+<div class="countdown">
+    <img src="{{ team.team_image.url }}" class = "round" style = "width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
+</div>
 
 <script> 
     var shown = null

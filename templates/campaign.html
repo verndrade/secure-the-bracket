@@ -157,9 +157,7 @@
             <div class="countdown">
                 <div class="countdown-info">
                     With {{ deadline|timeuntil }} remaining:
-
                 </div>
-
                 {% load static %}
                 <img src="{% static 'stopclock.jpg' %}" class="stopclock-img" alt="Stopclock">
 
@@ -169,8 +167,7 @@
                     </div><br>
                 </div>
                 <div class="votes">
-                    <div style="font-size: 2vw; font-weight: bold;"><span style="color: #ff2323">{{votecount}}</span>
-                        voter registration of 100 goal</div>
+                    <div style="font-size: 2vw; font-weight: bold;"><span style="color: #ff2323">{{votecount}}</span> voter registration of 100 goal</div>
                 </div>
             </div>
         </div>
@@ -182,7 +179,7 @@
                     <div class="team-name-campaign">Team {{ team.name }} </div>
                     <a href="/team/{{team.name}}">
                         {% if team.team_image %}
-                        <img src= "{{ team.team_image.url }}" class="team-img-campaign" alt="A picture of {{team.name}}">
+                            <img src= "{{ team.team_image.url }}" class="team-img-campaign" alt="A picture of {{team.name}}">
                         {% endif %}
                     </a>
                 </div>
