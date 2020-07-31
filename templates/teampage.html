@@ -1,33 +1,22 @@
 {% extends 'base.html' %}
 
 {% block head %}
- <title> {{team.name}}'s Team </title> 
+<title> {{team.name}}'s Team </title>
 {% endblock %}
 
 {% block body %}
-<div class="countdown">
-    <img src="{{ team.team_image.url }}" class = "round"
-    style = "width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
-    <div class="round">
-        <h1>First Round</h1>
-    </div>
-    <div class="timer">
-
-        <h1> Time Left: {{ deadline|timeuntil }}</h1>
-
-        <!-- {{ team.name }} -- {{ team.vote_count }} -->
-    </div>
-</div>
+<h1 style="text-align: center; color: white; font-family:Cambria; font-size: 4vw;"> {{team.name}} needs your help!</h1>
+<h2 style="text-align: center; color: white; font-family:Cambria; font-size: 2vw;"> Register to vote to help {{team.name}} win!</h2>
 
 <div class="middle">
-    <div class="action" onclick="toggleVisibility('register')">
+    <div class="action" onclick="toggleVisibility('register')" style="font-family: Georgia ">
         Register to Vote
     </div>
-    <div class="action" onclick="toggleVisibility('absentee')">
+    <div class="action" onclick="toggleVisibility('absentee')" style="font-family:Georgia">
         Request Absentee Ballot
     </div>
 
-    <div class="action" onclick="toggleVisibility('verify')">
+    <div class="action" onclick="toggleVisibility('verify')" style="font-family:Georgia">
         Check Registration
     </div>
 </div>
@@ -41,10 +30,14 @@
 <script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
 <div class="forms voteamerica-embed hideDiv forms" data-subscriber="securetheballot" id="verify" data-tool="verify"></div>
 
-<script> 
+<div class="countdown">
+    <img src="{{ team.team_image.url }}" class="round" style="width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
+</div>
+
+<script>
     var shown = null
     function toggleVisibility(name) {
-        if(shown){
+        if (shown) {
             $(shown).toggleClass('hideDiv')
         }
 
@@ -52,5 +45,5 @@
         $(name).toggleClass('hideDiv')
         shown = name;
     }
-</script> 
+</script>
 {% endblock %}
