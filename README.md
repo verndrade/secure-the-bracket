@@ -10,6 +10,7 @@ Hack for Good Project as part of Summer Hackathon
 2. In `hackathon/settings.py`, comment out the mysql databases block and uncomment the sqllite block.
 3. If mysql is not already installed, download with `brew install mysql`
 4. From the root folder, run `pip install -r requirements.txt`  
+    - If using mac, make sure you have pip3 installed and then type the above statement with pip3 :)
 
 For initial setup and for any changes to the models data, run:
 - `python manage.py makemigrations`
