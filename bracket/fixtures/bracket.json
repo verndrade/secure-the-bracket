@@ -64,9 +64,9 @@
         "info": "The purpose of this campaign is to increase the number of voter registrations prior to the November election.",
         "name": "Duke Men's Basketball Campaign",
         "deadline": "2020-11-03T01:00:00",
-        "teams": [
-            4,
-            5
+        "matchups": [
+            1,
+            2
         ]
     }
 },
@@ -77,10 +77,9 @@
         "info": "jack campaign for votes",
         "name": "Campaign Register Voters",
         "deadline": "2020-11-03T01:00:00",
-        "teams": [
+        "matchups": [
             1,
-            2,
-            3
+            2
         ]
     }
 }

@@ -3,47 +3,67 @@ from .models import *
 from .forms import *
 
 # Create your views here.
-def home(request):
-    return redirect('/campaign/1')
+def index(request):
+    return render(request, "index.html", { "campaigns": Campaign.objects.all() })
 
-def panel(request):
+def admin(request):
     if request.method == 'POST':
-        if "submit_matchup" in request.POST:
-            form = DropDownMenuTeams(request.POST)
-            if form.is_valid():
-                form.save()
-        elif "submit_team" in request.POST:
-            team = Team()
-            team.name = request.POST['name']
-            team.vote_count = request.POST['votes']
-            team.save()
+        campaign = Campaign()
+        campaign.name = request.POST['name']
+        campaign.info = request.POST['info']
+        campaign.deadline = request.POST['deadline']
+        try:
+            campaign.save()
+            for i in range(1,9,2):
+                matchup = Matchup()
+                team1 = Team()
+                team2 = Team()
+                team1.name = request.POST['team' + str(i)]
+                team2.name = request.POST['team' + str(i+1)]
+                team1.save()
+                team2.save()
+                matchup.team1 = team1
+                matchup.team2 = team2
+                matchup.save()
+                campaign.matchups.add(matchup)
+        except Exception as e:
+            try:
+                for i in campaign.matchups.all():
+                    i.team1.delete()
+                    i.team2.delete()
+                    i.delete()
+                campaign.delete()
+                team1.delete()
+            except:
+                pass
+            return render(request, "admin.html", {'fail':e})
 
-    return render(request, "admin.html", {'teams': Team.objects.all(), 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), 'form': DropDownMenuTeams()})
+    return render(request, "admin.html")
 
-def team(request, name):
-    team = get_object_or_404(Team,name=name)
+def team(request, slug):
+    team = get_object_or_404(Team,slug=slug)
     return render(request, "teampage.html", { "team": team, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), })
 
 def view404(request, exception=None):
     return render(request, "error.html")
 
 
-def matchup(request, id):
-    match = get_object_or_404(Matchup, id=id)
+def matchup(request, slug):
+    match = get_object_or_404(Matchup, slug=slug)
     return render(request, "matchup.html", {"id": id, "team1": match.team1, "team2": match.team2, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), "deadline": match.deadline})
 
-def campaign(request, id):
-    campaign = get_object_or_404(Campaign, id=id)
+def campaign(request, slug):
+    campaign = get_object_or_404(Campaign, slug=slug)
     
     votecount = 0
-    for team in campaign.teams.all():
-        votecount += team.vote_count
+    for matchup in campaign.matchups.all():
+        votecount += matchup.team1.vote_count + matchup.team2.vote_count
 
     votecountPercent = votecount
     if votecountPercent > 100:
         votecountPercent = 100
         
-    return render(request, "campaign.html", {"id": id, "teams": campaign.teams.all(), "info": campaign.info, "name": campaign.name, 'deadline': campaign.deadline, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), 'votecountPercent': votecountPercent, 'votecount': votecount})
+    return render(request, "campaign.html", {'campaign': campaign, 'votecountPercent': votecountPercent, 'votecount': votecount})
 
 def teamslist(request):
     teams = Team.objects.all()

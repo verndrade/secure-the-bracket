@@ -1,20 +1,66 @@
 {% extends 'base.html' %}
-
 {% block head %}
- <title> Admin Panel </title> 
+<title> Admin Panel </title>
 {% endblock %}
-
 {% block body %}
+
 <h1>Admin Control Panel</h1>
+<form method="post" style="background-color: aliceblue;">
+  {% csrf_token %}
+  
+  {% if fail %}
+  {{ fail }}<br>
+  {% endif %}
 
-<h2>Teams:</h2>
-    {% for team in teams %}
-        {{team.name}} -- {{team.vote_count}} <br>
-    {% endfor %}
-
-    <br>
-    <h2>Matchup:</h2>
-    {% for matchup in matchups %}
-        <a href="/team/{{matchup.team1}}">{{matchup.team1}}</a> vs <a href="/team/{{matchup.team2}}">{{matchup.team2}}</a>
-    {% endfor %}
+  Create Bracket:
+  <div class="form-group"> 
+    <label for="name"> Campaign Name: </label> 
+    <input id="name" type="text" name="name" required="required"> 
+  </div>
+  <div class="form-group"> 
+    <label for="info"> Campaign Info: </label> 
+    <input id="info" type="text" name="info" required="required"> 
+  </div>
+  <div class="form-group"> 
+    <label for="deadline"> Campaign Deadline: </label> 
+    <input id="deadline" type="datetime-local" name="deadline" required="required"> 
+  </div>
+  Matchup 1: <br>
+  <div class="form-group"> 
+    <label for="team1"> Team 1: </label> 
+    <input id="team1" type="text" name="team1" required="required"> 
+  </div>
+  <div class="form-group"> 
+    <label for="team2"> Team 2: </label> 
+    <input id="team2" type="text" name="team2" required="required"> 
+  </div>
+  Matchup 2: <br>
+  <div class="form-group"> 
+    <label for="team3"> Team 3: </label> 
+    <input id="team3" type="text" name="team3" required="required"> 
+  </div>
+  <div class="form-group"> 
+    <label for="team4"> Team 4: </label> 
+    <input id="team4" type="text" name="team4" required="required"> 
+  </div>
+  Matchup 3: <br>
+  <div class="form-group"> 
+    <label for="team5"> Team 5: </label> 
+    <input id="team5" type="text" name="team5" required="required"> 
+  </div>
+  <div class="form-group"> 
+    <label for="team6"> Team 6: </label> 
+    <input id="team6" type="text" name="team6" required="required"> 
+  </div>
+  Matchup 4: <br>
+  <div class="form-group"> 
+    <label for="team7"> Team 7: </label> 
+    <input id="team7" type="text" name="team7" required="required"> 
+  </div>
+  <div class="form-group"> 
+    <label for="team8"> Team 8: </label> 
+    <input id="team8" type="text" name="team8" required="required"> 
+  </div>
+  <input class="btn btn-success" type="submit" value="Submit"> 
+</form>
 {% endblock %}

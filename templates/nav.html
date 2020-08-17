@@ -14,7 +14,7 @@
             <button class="dropbtn">Campaign</button>
             <div class="dropdown-content">
                 {% for campaign in campaigns %}
-                    <a href= "/campaign/{{campaign.pk}}" >{{campaign.name}}</a>
+                    <a href= "/campaign/{{campaign.slug}}" >{{campaign.name}}</a>
                 {% endfor %}
             </div>
         </div>
@@ -22,7 +22,7 @@
             <button class="dropbtn">Matchups</button>
             <div class="dropdown-content">    
                 {% for matchup in matchups %}   
-                    <a href= "/matchup/{{matchup.pk}}" >{{matchup.team1}} vs. {{matchup.team2}}</a>
+                    <a href= "/matchup/{{matchup.slug}}" >{{matchup.team1}} vs. {{matchup.team2}}</a>
                 {% endfor %}
             </div>
         </div>
