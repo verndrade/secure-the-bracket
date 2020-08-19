@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'google_analytics',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -113,6 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+GOOGLE_ANALYTICS = { 'google_analytics_id': 'UA-175741365-1', }
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
