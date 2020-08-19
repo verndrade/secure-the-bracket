@@ -78,7 +78,7 @@
 
     <div class="main">
 
-        <div class="team-selection" style="font-family:Georgia; font-size: 3.5vw;">
+        <div class="team-selection" style="font-family: Poppins Bold; font-size: 3.5vw;">
             Pick your team
             <div class="team-pictures">
                 {% for team in teams %}
@@ -90,7 +90,7 @@
                             {% if team.team_image %}
                             <img src="{{ team.team_image.url }}" class="team-img-campaign"
                                 alt="A picture of {{team.name}}">
-                            <figcaption>Team {{ team.name }}</figcaption>
+                            <figcaption style="font-family: Poppins Bold;">Team {{ team.name }}</figcaption>
                             {% endif %}
                         </figure>
 

@@ -5,24 +5,24 @@
 <nav class="navbar">
     <div class="nav-item" style="width: 80%;">
         <div class="nav-logo">
-            <a href="/">Secure the Bracket</a>
+            <a href="/" style="font-family: Poppins Bold;">Secure the Bracket</a>
         </div>
     </div>
     <div class="nav-links">
-        <div class="nav-item"><a href="/teamslist">Teams</a></div>
+        <div class="nav-item"><a href="/teamslist" style="font-family: Poppins Bold;">Teams</a></div>
         <div class="dropdown">
-            <button class="dropbtn">Campaign</button>
+            <button class="dropbtn" style="font-family: Poppins Bold;">Campaign</button>
             <div class="dropdown-content">
                 {% for campaign in campaigns %}
-                    <a href= "/campaign/{{campaign.slug}}" >{{campaign.name}}</a>
+                    <a href= "/campaign/{{campaign.slug}}" style="font-family: Raleway;">{{campaign.name}}</a>
                 {% endfor %}
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Matchups</button>
+            <button class="dropbtn" style="font-family: Poppins Bold;">Matchups</button>
             <div class="dropdown-content">    
                 {% for matchup in matchups %}   
-                    <a href= "/matchup/{{matchup.slug}}" >{{matchup.team1}} vs. {{matchup.team2}}</a>
+                    <a href= "/matchup/{{matchup.slug}}" style="font-family: Raleway;">{{matchup.team1}} vs. {{matchup.team2}}</a>
                 {% endfor %}
             </div>
         </div>
