@@ -3,13 +3,14 @@ from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html", { "campaigns": Campaign.objects.all() })
+    return render(request, "index.html", { "campaigns": Campaign.objects.all(), "matchups": Matchup.objects.all() })
 
 def admin(request):
     if request.method == 'POST':
         campaign = Campaign()
         campaign.name = request.POST['name']
         campaign.info = request.POST['info']
+        campaign.goal = request.POST['goal']
         campaign.deadline = request.POST['deadline']
         try:
             campaign.save()
@@ -57,7 +58,7 @@ def register(request, slug):
 
 def matchup(request, slug):
     match = get_object_or_404(Matchup, slug=slug)
-    return render(request, "matchup.html", {"team1": match.team1, "team2": match.team2, "deadline": match.deadline})
+    return render(request, "matchup.html", {"team1": match.team1, "team2": match.team2, "deadline": match.campaign_set.all()[0].deadline})
 
 def campaign(request, slug):
     campaign = get_object_or_404(Campaign, slug=slug)
@@ -66,7 +67,7 @@ def campaign(request, slug):
     for matchup in campaign.matchups.all():
         votecount += matchup.team1.vote_count + matchup.team2.vote_count
 
-    votecountPercent = votecount
+    votecountPercent = votecount / campaign.goal * 100
     if votecountPercent > 100:
         votecountPercent = 100
         
@@ -74,4 +75,4 @@ def campaign(request, slug):
 
 def teamslist(request):
     teams = Team.objects.all()
-    return render(request, "teamslist.html", {"teams": teams, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(),})
+    return render(request, "teamslist.html", {"teams": teams, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all()})
