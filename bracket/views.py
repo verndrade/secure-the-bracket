@@ -41,7 +41,7 @@ def admin(request):
 
 def team(request, slug):
     team = get_object_or_404(Team,slug=slug)
-    return render(request, "teampage.html", { "team": team, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), })
+    return render(request, "teampage.html", { "campaign": Campaign.objects.all()[0], "team": team, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), })
 
 def view404(request, exception=None):
     return render(request, "error.html")
