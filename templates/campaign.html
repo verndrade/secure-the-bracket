@@ -191,7 +191,7 @@
                     <div class="team-campaign">
                         <figure>
                             <a href="/team/{{matchup.team2.slug}}" style="text-decoration: none;">
-                                {% if matchup.team.team_image.url %}
+                                {% if matchup.team2.team_image.url %}
                                     <img src= "{{ matchup.team2.team_image.url }}" class="team-img-campaign" alt="A picture of {{matchup.team2.name}}">
                                 {% else %}
                                     <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{matchup.team2.name}}">

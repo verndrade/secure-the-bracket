@@ -19,7 +19,9 @@ def admin(request):
                 team1 = Team()
                 team2 = Team()
                 team1.name = request.POST['team' + str(i)]
+                team1.team_image = request.FILES['team' + str(i) + 'image']
                 team2.name = request.POST['team' + str(i+1)]
+                team2.team_image = request.FILES['team' + str(i+1) + 'image']
                 team1.save()
                 team2.save()
                 matchup.team1 = team1

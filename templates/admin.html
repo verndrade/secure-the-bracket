@@ -5,7 +5,7 @@
 {% block body %}
 
 <h1 style="color: aliceblue; font-family: Poppins Bold;">Admin Control Panel</h1>
-<form method="post" style="background-color: aliceblue; font-family: Raleway;">
+<form method="post" style="background-color: aliceblue; font-family: Raleway;" enctype="multipart/form-data">
   {% csrf_token %}
   
   {% if fail %}
@@ -33,37 +33,45 @@
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team1"> Team 1: </label> 
     <input id="team1" type="text" name="team1" required="required"> 
+    <input id="team1image"  type="file" name="team1image" accept="image/*" required="required"> 
   </div>
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team2"> Team 2: </label> 
     <input id="team2" type="text" name="team2" required="required"> 
+    <input id="team2image"  type="file" name="team2image" accept="image/*" required="required"> 
   </div>
   Matchup 2: <br>
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team3"> Team 3: </label> 
     <input id="team3" type="text" name="team3" required="required"> 
+    <input id="team3image"  type="file" name="team3image" accept="image/*" required="required"> 
   </div>
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team4"> Team 4: </label> 
     <input id="team4" type="text" name="team4" required="required"> 
+    <input id="team4image"  type="file" name="team4image" accept="image/*" required="required"> 
   </div>
   Matchup 3: <br>
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team5"> Team 5: </label> 
     <input id="team5" type="text" name="team5" required="required"> 
+    <input id="team5image"  type="file" name="team5image" accept="image/*" required="required"> 
   </div>
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team6"> Team 6: </label> 
     <input id="team6" type="text" name="team6" required="required"> 
+    <input id="team6image"  type="file" name="team6image" accept="image/*" required="required"> 
   </div>
   Matchup 4: <br>
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team7"> Team 7: </label> 
     <input id="team7" type="text" name="team7" required="required"> 
+    <input id="team7image"  type="file" name="team7image" accept="image/*" required="required"> 
   </div>
   <div class="form-group"> 
     <label style="font-family: Raleway;" for="team8"> Team 8: </label> 
     <input id="team8" type="text" name="team8" required="required"> 
+    <input id="team8image"  type="file" name="team8image" accept="image/*" required="required"> 
   </div>
   <input class="btn btn-success" type="submit" value="Submit"> 
 </form>
