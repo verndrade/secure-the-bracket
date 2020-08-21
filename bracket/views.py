@@ -47,7 +47,7 @@ def team(request, slug):
     else:
         matchup = team.team2.all()[0]
     campaign = matchup.campaign_set.all()[0]
-    return render(request, "teampage.html", { "team": team, 'deadline': matchup.deadline, 'campaign': campaign })
+    return render(request, "teampage.html", { "team": team, 'deadline': matchup.campaign_set.all()[0].deadline, 'campaign': campaign })
 
 def view404(request, exception=None):
     return render(request, "error.html")
@@ -57,8 +57,8 @@ def register(request, slug):
     return render(request, "register.html", { "team": team })
 
 def matchup(request, slug):
-    match = get_object_or_404(Matchup, slug=slug)
-    return render(request, "matchup.html", {"team1": match.team1, "team2": match.team2, "deadline": match.campaign_set.all()[0].deadline})
+    matchup = get_object_or_404(Matchup, slug=slug)
+    return render(request, "matchup.html", {"team1": matchup.team1, "team2": matchup.team2, "deadline": matchup.campaign_set.all()[0].deadline})
 
 def campaign(request, slug):
     campaign = get_object_or_404(Campaign, slug=slug)
