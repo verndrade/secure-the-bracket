@@ -1,14 +1,15 @@
+
 {% extends 'base.html' %}
 {% load static %}
-
 {% block head %}
 <title> {{ team1 }} vs. {{ team2 }} </title>
 {% endblock %}
 
 {% block body %}
 <div class="countdown">
+    {% include "bracket.html" %}
     <div class="round">
-        <h1 style="font-family:monospace;">First Round</h1>
+        <h1 style="font-family:space;">First Round</h1>
     </div>
     <div class="timer">
 

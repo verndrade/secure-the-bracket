@@ -49,7 +49,7 @@ def view404(request, exception=None):
 
 def matchup(request, slug):
     match = get_object_or_404(Matchup, slug=slug)
-    return render(request, "matchup.html", {"id": id, "team1": match.team1, "team2": match.team2, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), "deadline": match.deadline})
+    return render(request, "matchup.html", {"campaign": Campaign.objects.all()[0],"id": id, "team1": match.team1, "team2": match.team2, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all(), "deadline": match.deadline})
 
 def campaign(request, slug):
     campaign = get_object_or_404(Campaign, slug=slug)
