@@ -2,18 +2,18 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-<title> {{ team1 }} vs. {{ team2 }} </title>
+<title style="font-family: Poppins Bold;"> {{ team1 }} vs. {{ team2 }} </title>
 {% endblock %}
 
 {% block body %}
 <div class="countdown">
     {% include "bracket.html" %}
     <div class="round">
-        <h1 style="font-family:space;">First Round</h1>
+        <h1 style="font-family: Poppins Bold;">First Round</h1>
     </div>
     <div class="timer">
 
-            <h1 style="font-family:monospace;"> Time Left: {{ deadline|timeuntil }}</h1>
+            <h1 style="font-family: Poppins Bold;"> Time Left: {{ deadline|timeuntil }}</h1>
 
         <!-- {{ team.name }} -- {{ team.vote_count }} -->
     </div>
@@ -23,14 +23,14 @@
     <div class="team">
         <figure>
             <a class="team-link" href="/team/{{ team1 }}"></a>
-            <figcaption style= "font-size: 3vw; color: white;">Team {{ team1.name }}</figcaption>
+            <figcaption style= "font-size: 3vw; color: white; font-family: Poppins Bold;">Team {{ team1.name }}</figcaption>
             {% if team1.team_image %}
             <img src="{{ team1.team_image.url }}" class="team-img" alt="A picture of {{team1.name}}">
             {% else %}
             <img src="{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team1.name}}">
             {% endif %}
             <div class="votes" style="font-weight: bold;">{{ team1.vote_count }} </div>
-            <div class="votesReg" style="font-family:Cambria;">VOTERS REGISTERED</div>
+            <div class="votesReg" style="font-family: Raleway;">VOTERS REGISTERED</div>
         </figure>
     </div>
     <div class="divider">
@@ -39,14 +39,14 @@
     <div class="team">
         <figure>
             <a class="team-link" href="/team/{{ team2 }}"></a>
-            <figcaption style= "font-size: 3vw; color: white;">Team {{ team2.name }}</figcaption>
+            <figcaption style= "font-size: 3vw; color: white; font-family: Poppins Bold;">Team {{ team2.name }}</figcaption>
             {% if team2.team_image %}
             <img src="{{ team2.team_image.url }}" class="team-img" alt="A picture of {{team2.name}}">
             {% else %}
             <img src="{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{team2.name}}">
             {% endif %}
             <div class="votes" style="font-weight: bold;">{{ team2.vote_count }} </div>
-            <div class="votesReg" style="font-family:Cambria;">VOTERS REGISTERED</div>
+            <div class="votesReg" style="font-family: Raleway;">VOTERS REGISTERED</div>
         </figure>
     </div>
 </div>

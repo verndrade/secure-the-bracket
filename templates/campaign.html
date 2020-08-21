@@ -148,12 +148,12 @@
     <div class="main">
         <div class="info-countdown">
             <div class="info">
-                <div style="font-family:'Agency FB'; font-size: 4vw; font-weight: bold;">Campaign Information</div>
-                <p style="font-family:'Calisto MT'; font-size: 2vw; padding: 5pt"> {{ campaign.info }} </p>
+                <div style="font-family: Poppins Bold; font-size: 4vw; font-weight: bold;">Campaign Information</div>
+                <p style="font-family: Raleway; font-size: 2vw; padding: 5pt"> {{ campaign.info }} </p>
             </div>
 
             <div class="countdown">
-                <div style="font-family:monospace" class="countdown-info">
+                <div style="font-family: Poppins Bold" class="countdown-info">
                     With <span style="font-weight: bold;">{{ campaign.deadline|timeuntil }}</span> remaining:
 
                 </div>
@@ -165,12 +165,12 @@
                     </div><br>
                 </div>
                 <div class="votes">
-                    <div style="font-size: 2.5vw; font-family:'Global Monospace'"><span style="font-weight: bold; color: #ff2323">{{votecount}}</span>
+                    <div style="font-size: 2.5vw; font-family: Raleway;"><span style="font-weight: bold; color: #ff2323">{{votecount}}</span>
                         voter registrations of <span style="font-weight: bold;">100 goal</span></div>
                 </div>
             </div>
         </div>
-        <div style="font-family:'Agency FB'; font-weight: bold;" class="team-selection">
+        <div style="font-family: Poppins Bold; font-weight: bold;" class="team-selection">
             Pick your team
             <div class="team-pictures">
                 {% for matchup in campaign.matchups.all %}
@@ -182,11 +182,11 @@
                                 {% else %}
                                     <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{matchup.team1.name}}">
                                 {% endif %}
-                                <figcaption style="font-size:1vw; background-color: grey;">Team {{ matchup.team1.name }}</figcaption>
+                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team1.name }}</figcaption>
                             </a>
                         </figure>
                     </div>
-                    <a href="/matchup/{{matchup.slug}}">vs. </a>
+                    <a href="/matchup/{{matchup.slug}}" style="font-family: Raleway;">vs. </a>
                     <div class="team-campaign">
                         <figure>
                             <a href="/team/{{matchup.team2.slug}}" style="text-decoration: none;">
@@ -195,7 +195,7 @@
                                 {% else %}
                                     <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{matchup.team2.name}}">
                                 {% endif %}
-                                <figcaption style="font-size:1vw; background-color: grey;">Team {{ matchup.team2.name }}</figcaption>
+                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team2.name }}</figcaption>
                             </a>
                         </figure>
                     </div>

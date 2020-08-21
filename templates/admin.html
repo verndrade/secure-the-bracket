@@ -4,8 +4,8 @@
 {% endblock %}
 {% block body %}
 
-<h1>Admin Control Panel</h1>
-<form method="post" style="background-color: aliceblue;">
+<h1 style="color: aliceblue; font-family: Poppins Bold;">Admin Control Panel</h1>
+<form method="post" style="background-color: aliceblue; font-family: Raleway;">
   {% csrf_token %}
   
   {% if fail %}
@@ -14,51 +14,51 @@
 
   Create Bracket:
   <div class="form-group"> 
-    <label for="name"> Campaign Name: </label> 
+    <label style="font-family: Raleway;" for="name"> Campaign Name: </label> 
     <input id="name" type="text" name="name" required="required"> 
   </div>
   <div class="form-group"> 
-    <label for="info"> Campaign Info: </label> 
+    <label style="font-family: Raleway;" for="info"> Campaign Info: </label> 
     <input id="info" type="text" name="info" required="required"> 
   </div>
   <div class="form-group"> 
-    <label for="deadline"> Campaign Deadline: </label> 
+    <label style="font-family: Raleway;" for="deadline"> Campaign Deadline: </label> 
     <input id="deadline" type="datetime-local" name="deadline" required="required"> 
   </div>
   Matchup 1: <br>
   <div class="form-group"> 
-    <label for="team1"> Team 1: </label> 
+    <label style="font-family: Raleway;" for="team1"> Team 1: </label> 
     <input id="team1" type="text" name="team1" required="required"> 
   </div>
   <div class="form-group"> 
-    <label for="team2"> Team 2: </label> 
+    <label style="font-family: Raleway;" for="team2"> Team 2: </label> 
     <input id="team2" type="text" name="team2" required="required"> 
   </div>
   Matchup 2: <br>
   <div class="form-group"> 
-    <label for="team3"> Team 3: </label> 
+    <label style="font-family: Raleway;" for="team3"> Team 3: </label> 
     <input id="team3" type="text" name="team3" required="required"> 
   </div>
   <div class="form-group"> 
-    <label for="team4"> Team 4: </label> 
+    <label style="font-family: Raleway;" for="team4"> Team 4: </label> 
     <input id="team4" type="text" name="team4" required="required"> 
   </div>
   Matchup 3: <br>
   <div class="form-group"> 
-    <label for="team5"> Team 5: </label> 
+    <label style="font-family: Raleway;" for="team5"> Team 5: </label> 
     <input id="team5" type="text" name="team5" required="required"> 
   </div>
   <div class="form-group"> 
-    <label for="team6"> Team 6: </label> 
+    <label style="font-family: Raleway;" for="team6"> Team 6: </label> 
     <input id="team6" type="text" name="team6" required="required"> 
   </div>
   Matchup 4: <br>
   <div class="form-group"> 
-    <label for="team7"> Team 7: </label> 
+    <label style="font-family: Raleway;" for="team7"> Team 7: </label> 
     <input id="team7" type="text" name="team7" required="required"> 
   </div>
   <div class="form-group"> 
-    <label for="team8"> Team 8: </label> 
+    <label style="font-family: Raleway;" for="team8"> Team 8: </label> 
     <input id="team8" type="text" name="team8" required="required"> 
   </div>
   <input class="btn btn-success" type="submit" value="Submit"> 
