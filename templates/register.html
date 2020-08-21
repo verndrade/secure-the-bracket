@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title> Register for {{team.name}} </title>
+{% endblock %}
+
+{% block body %}
+<div style="background-image:url('{{ team.team_image.url }}');">
+    <script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
+    <div class="forms voteamerica-embed " data-subscriber="securetheballot" id="register" data-tool="register">
+        <h2 style="font-family:Cambria; font-size: 2vw; text-align: center;"> Complete this form to help {{team.name}} win!</h2>  
+    </div>
+</div>
+{% endblock %}

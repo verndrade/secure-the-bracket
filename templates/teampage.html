@@ -5,45 +5,26 @@
 {% endblock %}
 
 {% block body %}
-<h1 style="text-align: center; color: white; font-family:Cambria; font-size: 4vw;"> {{team.name}} needs your help!</h1>
-<h2 style="text-align: center; color: white; font-family:Cambria; font-size: 2vw;"> Register to vote to help {{team.name}} win!</h2>
-
-<div class="middle">
-    <div class="action" onclick="toggleVisibility('register')" style="font-family: Georgia ">
-        Register to Vote
+{% include "bracket.html" %}
+<div class="countdown">
+    <div class="round">
+        <h1 style="font-family:monospace;">First Round</h1>
     </div>
-    <div class="action" onclick="toggleVisibility('absentee')" style="font-family:Georgia">
-        Request Absentee Ballot
-    </div>
-
-    <div class="action" onclick="toggleVisibility('verify')" style="font-family:Georgia">
-        Check Registration
+    <div class="timer">
+        <h1 style="font-family:monospace;"> Time Left: {{ deadline|timeuntil }}</h1>
     </div>
 </div>
 
-<script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
-<div class="forms voteamerica-embed hideDiv " data-subscriber="securetheballot" id="register" data-tool="register"></div>
+<h1 style="text-align: center; color: white; font-family:Cambria; font-size: 4vw;"> {{team.name}} needs your help!</h1>
+<h2 style="text-align: center; color: white; font-family:Cambria; font-size: 2vw;"> Click this button to help {{team.name}} win!</h2>
 
-<script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
-<div class="forms voteamerica-embed hideDiv " data-subscriber="securetheballot" id="absentee" data-tool="absentee"></div>
-
-<script src="https://cdn.voteamerica.com/embed/tools.js" async></script>
-<div class="forms voteamerica-embed hideDiv forms" data-subscriber="securetheballot" id="verify" data-tool="verify"></div>
+<div class="middle">
+    <a class="action" href="/register/{{team.slug}}" style="font-family: Georgia ">
+        Register to Vote
+    </a>
+</div>
 
 <div class="countdown">
     <img src="{{ team.team_image.url }}" class="round" style="width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
 </div>
-
-<script>
-    var shown = null
-    function toggleVisibility(name) {
-        if (shown) {
-            $(shown).toggleClass('hideDiv')
-        }
-
-        name = document.getElementById(name)
-        $(name).toggleClass('hideDiv')
-        shown = name;
-    }
-</script>
 {% endblock %}

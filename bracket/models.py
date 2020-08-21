@@ -21,7 +21,7 @@ class Matchup(models.Model):
     team1 = models.ForeignKey("Team", related_name = 'team1', on_delete=models.CASCADE)
     team2 = models.ForeignKey("Team", related_name = 'team2', on_delete=models.CASCADE)
     slug = models.SlugField(unique=True, default="")
-    deadline = models.DateTimeField(default=datetime.now() + timedelta(days=7))
+    deadline = models.DateTimeField(default=datetime(2020, 11, 3, 1))
     def getWinner(self):
         return self.team1 if self.team1.vote_count > self.team2.vote_count else self.team2
     def clean(self):
