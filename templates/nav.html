@@ -1,31 +1,31 @@
 {% load static %}
-
-<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
-
+<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
 <nav class="navbar">
-    <div class="nav-item" style="width: 80%;">
-        <div class="nav-logo">
-            <a href="/">Secure the Bracket</a>
-        </div>
+  <div class="nav-item" style="width: 80%;">
+    <div class="nav-logo">
+      <a href="/">Secure the Bracket</a>
     </div>
-    <div class="nav-links">
-        <div class="nav-item"><a href="/teamslist">Teams</a></div>
-        <div class="dropdown">
-            <button class="dropbtn">Campaign</button>
-            <div class="dropdown-content">
-                {% for campaign in campaigns %}
-                    <a href= "/campaign/{{campaign.slug}}" >{{campaign.name}}</a>
-                {% endfor %}
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Matchups</button>
-            <div class="dropdown-content">    
-                {% for matchup in matchups %}   
-                    <a href= "/matchup/{{matchup.slug}}" >{{matchup.team1}} vs. {{matchup.team2}}</a>
-                {% endfor %}
-            </div>
-        </div>
-        <!-- <div class="nav-item"><a href="https://www.securetheballot.org/">Register to vote</a> -->
+  </div>
+  <div class="nav-links">
+    <div class="nav-item"><a href="/teamslist">Teams</a></div>
+    <div class="dropdown">
+      <button class="dropbtn">Campaign</button>
+      <div class="dropdown-content">
+        {% for campaign in campaigns %}
+        <a href="/campaign/{{campaign.slug}}">{{campaign.name}}</a>
+        {% endfor %}
+      </div>
     </div>
+    <div class="dropdown">
+      <button class="dropbtn">Matchups</button>
+      <div class="dropdown-content">
+        {% for matchup in matchups %}
+        <a href="/matchup/{{matchup.slug}}"
+          >{{matchup.team1}} vs. {{matchup.team2}}</a
+        >
+        {% endfor %}
+      </div>
+    </div>
+    <!-- <div class="nav-item"><a href="https://www.securetheballot.org/">Register to vote</a> -->
+  </div>
 </nav>
