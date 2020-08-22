@@ -4,66 +4,40 @@
     "pk": 1,
     "fields": {
         "name": "red",
-        "vote_count": 20
+        "vote_count": 20,
+        "team_image": "bracket/static/default-team-img.jpg",
+        "slug": "bracket.Team.name"
     }
 },
 {
     "model": "bracket.team",
     "pk": 2,
     "fields": {
-        "name": "blue",
-        "vote_count": 30
+        "name": "green",
+        "vote_count": 10,
+        "team_image": "bracket/static/default-team-img.jpg",
+        "slug": "green"
     }
 },
 {
     "model": "bracket.team",
     "pk": 3,
     "fields": {
-        "name": "green",
-        "vote_count": 15
-    }
-},
-{
-    "model": "bracket.team",
-    "pk": 4,
-    "fields": {
-        "name": "Zion",
-        "vote_count": 25
-    }
-},
-{
-    "model": "bracket.team",
-    "pk": 5,
-    "fields": {
-        "name": "Reggie",
-        "vote_count": 13
-    }
-},
-{
-    "model": "bracket.matchup",
-    "pk": 1,
-    "fields": {
-        "team1": 1,
-        "team2": 2,
-        "deadline": "2020-08-05T14:42:57.116"
-    }
-},
-{
-    "model": "bracket.matchup",
-    "pk": 2,
-    "fields": {
-        "team1": 1,
-        "team2": 2,
-        "deadline": "2020-08-05T14:43:13"
+        "name": "purple",
+        "vote_count": 20,
+        "team_image": "bracket/static/default-team-img.jpg",
+        "slug": "purple"
     }
 },
 {
     "model": "bracket.campaign",
     "pk": 1,
     "fields": {
-        "info": "The purpose of this campaign is to increase the number of voter registrations prior to the November election.",
         "name": "Duke Men's Basketball Campaign",
+        "info": "The purpose of this campaign is to increase the number of voter registrations prior to the November election.",
         "deadline": "2020-11-03T01:00:00",
+        "slug": "duke-mens-basketball-campaign",
+        "goal": 100,
         "matchups": [
             1,
             2
@@ -71,16 +45,21 @@
     }
 },
 {
-    "model": "bracket.campaign",
+    "model": "bracket.matchup",
+    "pk": 1,
+    "fields": {
+        "team1": 1,
+        "team2": 2,
+        "slug": "red-vs-green"
+    }
+},
+{
+    "model": "bracket.matchup",
     "pk": 2,
     "fields": {
-        "info": "jack campaign for votes",
-        "name": "Campaign Register Voters",
-        "deadline": "2020-11-03T01:00:00",
-        "matchups": [
-            1,
-            2
-        ]
+        "team1": 3,
+        "team2": 1,
+        "slug": "purple-vs-red"
     }
 }
 ]
