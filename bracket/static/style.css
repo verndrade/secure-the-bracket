@@ -24,23 +24,13 @@
     justify-content: center;
 }
 
-.countdown {
+.campaign-countdown {
     align-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
     font-size: 2vw;
     padding: 1%;
-}
-
-.countdown-info {
-    border-color: black;
-    color: white;
-    font-size: 6vw;
-    position: absolute;
-    text-align: center;
-    text-shadow: 1px 0 0;
-    z-index: 1;
 }
 
 .divider {
@@ -92,13 +82,13 @@
 }
 
 .info-countdown {
+    flex: 40%;
     align-content: flex-start;
     display: flex;
     flex-direction: column;
     color: white;
     font-size: 3vw;
     text-align: center;
-    width: 50%;
 }
 
 .main {
@@ -283,4 +273,77 @@ figcaption {
     color: white;
     padding: 2px;
     text-align: center;
+}
+
+
+/* campaign page */
+
+.campaign-info {
+    color: white;
+    padding: 5pt;
+}
+
+.campaign-stopclock-img {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.campaign-main {
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+    flex-wrap: wrap;
+}
+
+.campaign-countdown-info {
+    position: relative;
+    top: 20%;
+    text-align: center;
+    color: white;
+    border-color: black;
+    text-shadow: 1px 0 0;
+    z-index: 1
+}
+
+.campaign-votes {
+    position: relative;
+    z-index: 1;
+    color: white;
+    border-color: black;
+    text-shadow: 1px 0 0;
+    font-size: 6vw;
+    bottom: 30%;
+    text-align: center;
+}
+
+.campaign-team-pictures {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.campaign-team-selection {
+    flex: 40%;
+    color: white;
+    font-size: 3vw;
+    text-align: center;
+}
+
+.campaign-team-img {
+    width: 100%;
+    align-self: center;
+}
+
+.campaign-team {
+    position: relative;
+    text-align: center;
+    width: 40%;
+}
+
+.w3-container {
+    position: relative;
+    bottom: 40%;
 }
