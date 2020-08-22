@@ -138,35 +138,23 @@
             position: absolute;
             top: 40%;
             width: 100%;
-        }
+        }   
     </style>
 </head>
 
 <body>
     {% include "./nav.html" %}
     {% include "bracket.html" %}
-    <div class="main">
+        <div class="round">
+            <h1 style="font-family: Poppins Bold;">With {{ campaign.deadline|timeuntil }} remaining: {{votecount}}
+                voter registrations of 100 goal! </h1> 
+        </div>
         <div class="info-countdown">
-            <div class="info">
-                <div style="font-family: Poppins Bold; font-size: 4vw; font-weight: bold;">Campaign Information</div>
-                <p style="font-family: Raleway; font-size: 2vw; padding: 5pt"> {{ campaign.info }} </p>
-            </div>
-
             <div class="countdown">
-                <div style="font-family: Poppins Bold" class="countdown-info">
-                    With <span style="font-weight: bold;">{{ campaign.deadline|timeuntil }}</span> remaining:
-
-                </div>
-                <img src="{% static 'stopclock.jpg' %}" class="stopclock-img" alt="Stopclock">
-
                 <div class="w3-container">
-                    <div class="w3-light-grey">
+                    <div class="w3-light-grey" style="width: 50%; margin: auto">
                         <div class="w3-red" style="height:24px;width:{{votecountPercent}}%"></div>
                     </div><br>
-                </div>
-                <div class="votes">
-                    <div style="font-size: 2.5vw; font-family: Raleway;"><span style="font-weight: bold; color: #ff2323">{{votecount}}</span>
-                        voter registrations of <span style="font-weight: bold;">100 goal</span></div>
                 </div>
             </div>
         </div>
@@ -182,8 +170,9 @@
                                 {% else %}
                                     <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{matchup.team1.name}}">
                                 {% endif %}
-                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team1.name }}</figcaption>
                             </a>
+                            <figcaption style="font-size:2vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team1.name }}</figcaption>
+                            <figcaption style="font-size:2vw; background-color: black; font-family: Raleway;">Get out and vote!</figcaption>
                         </figure>
                     </div>
                     <a href="/matchup/{{matchup.slug}}" style="font-family: Raleway;">vs. </a>
@@ -195,14 +184,15 @@
                                 {% else %}
                                     <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{matchup.team2.name}}">
                                 {% endif %}
-                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team2.name }}</figcaption>
+                                <figcaption style="font-size:2vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team2.name }}</figcaption>
+                                <figcaption style="font-size:2vw; background-color: black; font-family: Raleway;">Get out and vote!</figcaption>
                             </a>
                         </figure>
                     </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
+
 
 
 </body>
