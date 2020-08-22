@@ -17,11 +17,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include, re_path
+from bracket import views, forms
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('sudo/', admin.site.urls),
     path('', include('bracket.urls')),
-    re_path('djga/', include('google_analytics.urls'))
+    re_path('djga/', include('google_analytics.urls')),
+    path('signup/', views.SignUpView.as_view(), name='signup'),
+    path('activate/<uidb64>/<token>/', views.ActivateAccount.as_view(), name='activate'),
+    path('login/', auth_views.LoginView.as_view(authentication_form=forms.LoginForm,
+                                            redirect_authenticated_user=True,
+                                            template_name='login.html'), name='login'),
+    path('logout/', views.logoutUser, name='logoutUser'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'bracket.views.view404'
