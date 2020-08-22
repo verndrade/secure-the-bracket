@@ -58,6 +58,14 @@ def register(request, slug):
     team = get_object_or_404(Team,slug=slug)
     return render(request, "register.html", { "team": team })
 
+def absentee(request, slug):
+    team = get_object_or_404(Team,slug=slug)
+    return render(request, "absentee.html", { "team": team })
+
+def verifyRegistration(request, slug):
+    team = get_object_or_404(Team,slug=slug)
+    return render(request, "verifyRegistration.html", { "team": team })
+
 def matchup(request, slug):
     matchup = get_object_or_404(Matchup, slug=slug)
     return render(request, "matchup.html", {"team1": matchup.team1, "team2": matchup.team2, "deadline": matchup.campaign_set.all()[0].deadline})

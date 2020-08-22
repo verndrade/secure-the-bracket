@@ -8,20 +8,77 @@
 {% include "bracket.html" %}
 <div class="countdown">
     <div class="round">
-        <h1 style="font-family:monospace;">First Round</h1>
+        <h1 style="font-family:Poppins Bold;">First Round</h1>
     </div>
     <div class="timer">
-        <h1 style="font-family:monospace;"> Time Left: {{ deadline|timeuntil }}</h1>
+        <h1 style="font-family:Poppins Bold;"> Time Left: {{ deadline|timeuntil }}</h1>
     </div>
 </div>
 
-<h1 style="text-align: center; color: white; font-family:Cambria; font-size: 4vw;"> {{team.name}} needs your help!</h1>
-<h2 style="text-align: center; color: white; font-family:Cambria; font-size: 2vw;"> Click this button to help {{team.name}} win!</h2>
+<h1 style="text-align: center; color: white; font-family:Ralway; font-size: 4vw;"> {{team.name}} needs your help!</h1>
+<h2 style="text-align: center; color: white; font-family:Ralway; font-size: 2vw;"> Register to vote, get an absentee ballot, or verify your voter information to help {{team.name}} win!</h2>
 
-<div class="middle">
-    <a class="action" href="/register/{{team.slug}}" style="font-family: Georgia ">
-        Register to Vote
-    </a>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'teampage.css' %}">
+
+<!--
+We will create a family tree using just CSS(3)
+The markup will be simple nested lists
+-->
+<div class="tree">
+	<ul>
+		<li>
+			<a href="">Have you registered to vote?</a>
+			<ul>
+				<li>
+					<a href="">No</a>
+					<ul>
+						<li>
+							<div class="middle">
+                                <a class="action" href="/register/{{team.slug}}" style="font-family: Raleway ">
+                                    Register to Vote
+                                </a>
+                            </div>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="">Yes</a>
+					<ul>
+						<li>
+							<a href="">Any Changes?</a>
+							<ul>
+								<li>
+                                    <a href="">Yes</a>
+                                    <ul>
+                                        <li>
+                                            <div class="middle">
+                                                <a class="action" href="/absentee/{{team.slug}}" style="font-family: Raleway ">
+                                                    Get an Absentee Ballot
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+								</li>
+								<li>
+                                    <a href="">No</a>
+                                    <ul>
+                                        <li>
+                                            <div class="middle">
+                                                <a class="action" href="/verifyRegistration/{{team.slug}}" style="font-family: Raleway ">
+                                                    Verify Voter information
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
 </div>
 
 <div class="countdown">
