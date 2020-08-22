@@ -18,14 +18,10 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="dropdown">
-            <button class="dropbtn" style="font-family: Poppins Bold;">Matchups</button>
-            <div class="dropdown-content">    
-                {% for matchup in matchups %}   
-                    <a href= "/matchup/{{matchup.slug}}" style="font-family: Raleway;">{{matchup.team1}} vs. {{matchup.team2}}</a>
-                {% endfor %}
-            </div>
-        </div>
-        <!-- <div class="nav-item"><a href="https://www.securetheballot.org/">Register to vote</a> -->
+        {% if user.is_authenticated %}
+            <div class="nav-item"><a href="/logout" style="font-family: Poppins Bold;">Logout</a></div>
+        {% else %}
+            <div class="nav-item"><a href="/login" style="font-family: Poppins Bold;">Login</a></div>
+        {% endif %}
     </div>
 </nav>
