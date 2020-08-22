@@ -46,12 +46,29 @@
     background-color: #4d6281;
 }
 
-.bracketheader {
+.bracket-header {
     width: 100%;
     margin: 20 auto;
     color: white;
     text-align: center;
-    font-family: Poppins Bold;
+}
+
+.node circle {
+    cursor: pointer;
+    fill: blue;
+    stroke: blue;
+    stroke-width: 2px;
+}
+
+.node text {
+    font: 12px sans-serif;
+    fill: white;
+}
+
+path.link {
+    fill: none;
+    stroke: white;
+    stroke-width: 5px;
 }
 
 .header {
