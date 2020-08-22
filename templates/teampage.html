@@ -1,22 +1,9 @@
 {% extends 'base.html' %} {% block head %}
 <title>{{team.name}}'s Team</title>
-{% endblock %} {% block body %}
-<h1
-  style="
-    text-align: center;
-    color: white;
-    font-family: Cambria;
-    font-size: 4vw;
-  "
->
-  {{team.name}} needs your help!
-</h1>
-
-{% block head %}
-<title style="font-family: Poppins Bold;"> {{team.name}}'s Team </title>
-{% endblock %}
+{% endblock %} 
 
 {% block body %}
+
 {% include "bracket.html" %}
 <div class="countdown">
     <div class="round">
