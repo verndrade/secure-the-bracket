@@ -15,6 +15,8 @@
     </div>
 </div>
 
+<br>
+
 <h1 style="text-align: center; color: white; font-family:Ralway; font-size: 4vw;"> {{team.name}} needs your help!</h1>
 <h2 style="text-align: center; color: white; font-family:Ralway; font-size: 2vw;"> Register to vote, get an absentee ballot, or verify your voter information to help {{team.name}} win!</h2>
 
@@ -25,6 +27,7 @@
 We will create a family tree using just CSS(3)
 The markup will be simple nested lists
 -->
+<div class="teampage">
 <div class="tree">
 	<ul>
 		<li>
@@ -81,7 +84,8 @@ The markup will be simple nested lists
 	</ul>
 </div>
 
-<div class="countdown">
-    <img src="{{ team.team_image.url }}" class="round" style="width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
+<div class="countdown-image">
+    <img src="{{ team.team_image.url }}" class="round" style="opacity: 30%" alt="A picture of {{team.name}}">
+</div>
 </div>
 {% endblock %}

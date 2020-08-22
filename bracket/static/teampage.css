@@ -3,9 +3,19 @@
 /*Now the CSS*/
 * {margin: 0; padding: 0;}
 
+.countdown-image
+{
+	align-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-size: 2vw;
+	padding: 1%;
+	width: 100%;
+}
+
 .tree ul {
 	padding-top: 20px; position: relative;
-	
 	transition: all 1s;
 	-webkit-transition: all 1s;
 	-moz-transition: all 1s;
@@ -16,7 +26,6 @@
 	list-style-type: none;
 	position: relative;
 	padding: 50px 5px 0 5px;
-	
 	transition: all 1s;
 	-webkit-transition: all 1s;
 	-moz-transition: all 1s;
