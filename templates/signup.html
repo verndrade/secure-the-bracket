@@ -5,8 +5,12 @@
 {% endblock %}
 
 {% block body %} 
-<div style="background-color: aliceblue;">
-    <h2>Sign Up Page</h2>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'signup.css' %}">
+<div id=container style="background-color: aliceblue;">
+    <img src= "{% static 'logo.png' %}" class="logo" alt="A picture of secure the ballot logo">
+    <h2 style="font-family: Poppins Bold; text-align: center;">Sign Up Page</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

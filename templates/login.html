@@ -1,8 +1,13 @@
-{% extends 'base.html' %}=
+{% extends 'base.html' %}
 
-{% block body %} 
-<div class="d-flex flex-fill flex-column align-items-center justify-content-center" style="background-color: aliceblue;">
-  <h1 class="display-4 mb-3 text-center">Sign in</h1>
+{% block body %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+
+<div id="container">  
+  <img src= "{% static 'logo.png' %}" class="logo" alt="A picture of secure the ballot logo">     
+  <h2 style="font-family: Poppins Bold; text-align: center;">Log in</h2>
   <form method="post" class="auth-form">
     {% csrf_token %}
     {{ form.as_p }}
