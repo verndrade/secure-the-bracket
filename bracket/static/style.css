@@ -247,25 +247,6 @@ body {
     background-color: #011f40;
 }
 
-
-/* .node circle {
-    cursor: pointer;
-    fill: blue;
-    stroke: blue;
-    stroke-width: 2px;
-}
-
-.node text {
-    font: 12px sans-serif;
-    fill: white;
-}
-
-path.link {
-    fill: none;
-    stroke: white;
-    stroke-width: 5px;
-} */
-
 .teams-list-row {
     width: 100%;
     display: flex;
