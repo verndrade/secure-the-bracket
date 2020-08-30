@@ -3,77 +3,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% load static %}
 <link rel="shortcut icon" href="{% static 'logo.png' type='image/x-icon' %}">
-<head>
-    <style>
-        .nav-bar {
-            width: 100%;
-            background-color: white;
-            padding: 2pt;
-        }
-
-        body {
-            background-color: #011f40;
-        }
-        .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            text-align: center;
-            left: 0;
-            top: 0;
-            color: black;
-        }
-
-        .header-img {
-            width: 100%;
-            text-align: center;
-        }
-
-        .main {
-            display: flex;
-            align-content: space-around;
-            align-items: flex-start;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .team-pictures {
-            display: grid;
-            grid-template-columns: 60% 60% 60%;
-        }
-
-        .team-selection {
-            color: white;
-            font-size: 3vw;
-            text-align: center;
-            width: 70%;
-        }
-
-        .team-img-campaign {
-            width: 100%;
-            align-self: center;
-        }
-
-        .team-campaign {
-            width: 70%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        figcaption {
-            background-color: grey;
-            color: white;
-            padding: 2px;
-            text-align: center;
-        }
-    </style>
-    </style>
-</head>
 
 <body>
+    <link rel="stylesheet" type="text/css" href="{% static 'teamlist.css' %}" />
     {% include "./nav.html" %}
 
     <div class="main">

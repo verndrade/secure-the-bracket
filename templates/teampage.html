@@ -6,15 +6,15 @@
 
 {% block body %}
 {% include "bracket.html" %}
-<div class="countdown">
+
     <div class="round">
         <h1 style="font-family:monospace;">First Round</h1>
     </div>
     <div class="timer">
         <h1 style="font-family:monospace;"> Time Left: {{ deadline|timeuntil }}</h1>
     </div>
-</div>
 
+<br>
 <h1 style="text-align: center; color: white; font-family:Cambria; font-size: 4vw;"> {{team.name}} needs your help!</h1>
 <h2 style="text-align: center; color: white; font-family:Cambria; font-size: 2vw;"> Click this button to help {{team.name}} win!</h2>
 

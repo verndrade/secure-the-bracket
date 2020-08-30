@@ -1,3 +1,7 @@
+/* html
+{
+	background-color: #011f40;
+} */
 .a
 {
 	display: block;
@@ -110,14 +114,15 @@
 	flex-wrap: wrap;
 	justify-content: center;
 }
-.nav-bar
+/* .nav-bar
 {
 	background-color: white;
 	padding: 2pt;
 	width: 100%;
-}
+} */
 .round
 {
+	margin: auto;
 	background-color: #ff2323;
 	color: white;
 	text-align: center;
@@ -203,6 +208,8 @@
 .timer
 {
 	color: white;
+	margin: auto;
+	text-align:center;
 }
 .votes
 {
@@ -226,8 +233,4 @@
 	text-shadow: 1px 2px black;
 	top: 70%;
 	width: 30%;
-}
-body
-{
-	background-color: #011f40;
 }

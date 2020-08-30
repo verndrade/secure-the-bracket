@@ -9,5 +9,6 @@ urlpatterns = [
     path('matchup/<slug:slug>', views.matchup, name="matchup"),
     path('campaign/<slug:slug>', views.campaign, name="campaign"),
     path('teamslist', views.teamslist, name="teamslist"),
+    path('account', views.account, name="account"),
     path('admin', views.admin, name="admin")
 ]

@@ -1,31 +1,44 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
+<nav class="navbar navbar-light navbar-expand-lg">
+ 
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+    <ul class="navbar-nav"> 
+        <a class="navbar-brand">Secure the Bracket</a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+    </ul>
+    
 
-<nav class="navbar">
-    <div class="nav-item" style="width: 80%;">
-        <div class="nav-logo">
-            <a href="/" style="font-family: Poppins Bold;">Secure the Bracket</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/teamslist">Teams</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Campaign
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown-items">
+          {% for campaign in campaigns %}
+            <a class="dropdown-item" href="/campaign/{{campaign.slug}}">{{campaign.name}}</a>
+          {% endfor %}
         </div>
-    </div>
-    <div class="nav-links">
-        <div class="nav-item"><a href="/teamslist" style="font-family: Poppins Bold;">Teams</a></div>
-        <div class="dropdown">
-            <button class="dropbtn" style="font-family: Poppins Bold;">Campaign</button>
-            <div class="dropdown-content">
-                {% for campaign in campaigns %}
-                    <a href= "/campaign/{{campaign.slug}}" style="font-family: Raleway;">{{campaign.name}}</a>
-                {% endfor %}
-            </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Matchups
+        </a>
+        <div class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLink" id="dropdown-items">
+          {% for matchup in matchups %}
+            <a class="dropdown-item" href="/matchup/{{matchup.slug}}">{{matchup.team1}} vs. {{matchup.team2}}</a>
+          {% endfor %}
         </div>
-        <div class="dropdown">
-            <button class="dropbtn" style="font-family: Poppins Bold;">Matchups</button>
-            <div class="dropdown-content">    
-                {% for matchup in matchups %}   
-                    <a href= "/matchup/{{matchup.slug}}" style="font-family: Raleway;">{{matchup.team1}} vs. {{matchup.team2}}</a>
-                {% endfor %}
-            </div>
-        </div>
-        <!-- <div class="nav-item"><a href="https://www.securetheballot.org/">Register to vote</a> -->
-    </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/account">Account</a>
+      </li>
+    </ul>
+  </div>
 </nav>

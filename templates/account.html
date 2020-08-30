@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<title style="font-family: Poppins Bold;">{{team.name}}'s Team</title>
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
+{% endblock %} {% block body %}
+<link rel="stylesheet" type="text/css" href="{% static 'account.css' %}" />
+
+<div class="my-stats">
+  My statistics
+  <!-- <div class="my-stats-top">
+    <div class="my-points">
+      My points: ____
+    </div>
+    <div class="my-referrals">
+      My referrals: _____
+    </div>
+  </div> -->
+  <!-- <div class="my-stats-mid">
+    You have asked __ to join. ___ have successfully checked their registration
+  </div> -->
+  <div class="my-stats'bottom">
+    <a href="#">Follow up</a>
+  </div>
+</div>
+{% endblock %}
+
+<!-- <div class="my-stats" style="color: white;">
+  My statistics -->
+<!-- <div class="my-stats-top">
+    <div class="my-points">
+      My points: ____
+    </div>
+    <div class="my-referrals">
+      My referrals: _____
+    </div>
+  </div>
+  <div class="my-stats-mid">
+    You have asked __ to join. ___ have successfully checked their registration
+  </div>
+  <div class="my-stats'bottom">
+    <a href="#">Follow up</a>
+  </div> -->
+<!-- </div> -->

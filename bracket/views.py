@@ -46,10 +46,13 @@ def team(request, slug):
     team = get_object_or_404(Team,slug=slug)
     if len(team.team1.all()):
         matchup = team.team1.all()[0]
+        otherteam = team.team2
     else:
         matchup = team.team2.all()[0]
+        otherteam = team.team1 #(or something like that) 
     campaign = matchup.campaign_set.all()[0]
-    return render(request, "teampage.html", { "team": team, 'deadline': matchup.campaign_set.all()[0].deadline, 'campaign': campaign })
+   
+    return render(request, "teampage.html", { "team": team, "otherteam": otherteam, 'deadline': matchup.campaign_set.all()[0].deadline, 'campaign': campaign })
 
 def view404(request, exception=None):
     return render(request, "error.html")
@@ -78,3 +81,7 @@ def campaign(request, slug):
 def teamslist(request):
     teams = Team.objects.all()
     return render(request, "teamslist.html", {"teams": teams, 'matchups': Matchup.objects.all(), 'campaigns': Campaign.objects.all()})
+
+def account(request): 
+    teams = Team.objects.all()
+    return render(request, "account.html", {"team": teams}); 

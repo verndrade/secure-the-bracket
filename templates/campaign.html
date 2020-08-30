@@ -1,22 +1,24 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'navbar.css' %}" />
 <link rel="shortcut icon" href="{% static 'logo.png' type='image/x-icon' %}">
 <head>
     <title>{{ campaign.name }}'s Campaign</title>
     <style>
-        .nav-bar {
+        /* .nav-bar {
             width: 100%;
             background-color: white;
             padding: 2pt;
-        }
+        } */
 
         body {
             background-color: #011f40;
         }
-
-        .header {
+        .panel {
+            height: 100%;
+        }
+        /* .header {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -59,7 +61,7 @@
             width: 100%;
             text-align: center;
             position: relative;
-        }
+        } */
 
         .info-countdown {
             display: flex;
@@ -146,6 +148,70 @@
 <body>
     {% include "./nav.html" %}
     {% include "bracket.html" %}
+    <div class="container"> 
+        <div class="row">
+            <div class="col-xs-6 col-md-4"> 
+                <div class="panel panel-default"> 
+                    <div class="panel-body">Campaign Information</div>
+                    <p>{{campaign.info}}</p>
+                </div>
+            </div>
+            <div class="col-xs-6 col-md-4"> 
+                Pick your team
+                <br>
+                <div class="team-pictures">
+                    {% for matchup in campaign.matchups.all %}
+                        <div class="team-campaign">
+                            <figure>
+                                <a href="/team/{{matchup.team1.slug}}" style="text-decoration: none;">
+                                    {% if matchup.team1.team_image.url %}
+                                        <img src= "{{ matchup.team1.team_image.url }}" class="team-img-campaign" alt="A picture of {{matchup.team1.name}}">
+                                    {% else %}
+                                        <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{matchup.team1.name}}">
+                                    {% endif %}
+                                    <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team1.name }}</figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                        <a href="/matchup/{{matchup.slug}}" style="font-family: Raleway;">vs. </a>
+                        <div class="team-campaign">
+                            <figure>
+                                <a href="/team/{{matchup.team2.slug}}" style="text-decoration: none;">
+                                    {% if matchup.team2.team_image.url %}
+                                        <img src= "{{ matchup.team2.team_image.url }}" class="team-img-campaign" alt="A picture of {{matchup.team2.name}}">
+                                    {% else %}
+                                        <img src= "{% static 'default-team-img.jpg' %}" class="team-img-campaign" alt="A picture of {{matchup.team2.name}}">
+                                    {% endif %}
+                                    <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team2.name }}</figcaption>
+                                </a>
+                            </figure>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div> 
+        <div class="row"> 
+            <div class="countdown">
+                <div style="font-family: Poppins Bold" class="countdown-info">
+                    With <span style="font-weight: bold;">{{ campaign.deadline|timeuntil }}</span> remaining:
+
+                </div>
+                <img src="{% static 'stopclock.jpg' %}" class="stopclock-img" alt="Stopclock">
+
+                <div class="w3-container">
+                    <div class="w3-light-grey">
+                        <div class="w3-red" style="height:24px;width:{{votecountPercent}}%"></div>
+                    </div><br>
+                </div>
+                <div class="votes">
+                    <div style="font-size: 2.5vw; font-family: Raleway;"><span style="font-weight: bold; color: #ff2323">{{votecount}}</span>
+                        voter registrations of <span style="font-weight: bold;">{{campaign.goal}} goal</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--     
     <div class="main">
         <div class="info-countdown">
             <div class="info">
@@ -171,6 +237,7 @@
                 </div>
             </div>
         </div>
+        
         <div style="font-family: Poppins Bold; font-weight: bold;" class="team-selection">
             Pick your team
             <div class="team-pictures">
@@ -203,7 +270,7 @@
                 {% endfor %}
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 </body>
