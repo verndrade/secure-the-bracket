@@ -1,103 +1,30 @@
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> {% load static %}
 <link rel="shortcut icon" href="{% static 'logo.png' type='image/x-icon' %}">
+
 <head>
-    <style>
-        .nav-bar {
-            width: 100%;
-            background-color: white;
-            padding: 2pt;
-        }
-
-        body {
-            background-color: #011f40;
-        }
-        .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            text-align: center;
-            left: 0;
-            top: 0;
-            color: black;
-        }
-
-        .header-img {
-            width: 100%;
-            text-align: center;
-        }
-
-        .main {
-            display: flex;
-            align-content: space-around;
-            align-items: flex-start;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .team-pictures {
-            display: grid;
-            grid-template-columns: 60% 60% 60%;
-        }
-
-        .team-selection {
-            color: white;
-            font-size: 3vw;
-            text-align: center;
-            width: 70%;
-        }
-
-        .team-img-campaign {
-            width: 100%;
-            align-self: center;
-        }
-
-        .team-campaign {
-            width: 70%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        figcaption {
-            background-color: grey;
-            color: white;
-            padding: 2px;
-            text-align: center;
-        }
-    </style>
-    </style>
 </head>
 
 <body>
-    {% include "./nav.html" %}
-
-    <div class="main">
-
-        <div class="team-selection" style="font-family: Poppins Bold; font-size: 3.5vw;">
+    {% include 'nav.html' %} {% block body %} {% endblock %}
+    <div>
+        <div class="bracket-header" style="font-family: Poppins Bold; font-size: 3.5vw; color: white">
             Pick your team
-            <div class="team-pictures">
+            <div class="teams-list-row">
                 {% for team in teams %}
-                <div class="team-campaign">
+                <div class="teams-list-column">
                     <a href="/team/{{team.name}}">
-
-
                         <figure>
                             {% if team.team_image %}
-                            <img src="{{ team.team_image.url }}" class="team-img-campaign"
-                                alt="A picture of {{team.name}}">
+                            <img src="{{ team.team_image.url }}" class="teams-list-img" alt="A picture of {{team.name}}">
                             <figcaption style="font-family: Poppins Bold;">Team {{ team.name }}</figcaption>
                             {% endif %}
                         </figure>
-
-                        <!-- <div class="team-name-campaign">Team {{ team.name }} </div> -->
                     </a>
                 </div>
-                <!-- <div class = "team-choice">{{ team.name }}</div> -->
                 {% endfor %}
             </div>
         </div>
