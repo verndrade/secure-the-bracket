@@ -73,7 +73,7 @@ def campaign(request, slug):
     if votecountPercent > 100:
         votecountPercent = 100
         
-    return render(request, "campaign.html", {'campaign': campaign, 'votecountPercent': votecountPercent, 'votecount': votecount})
+    return render(request, "campaign.html", {'campaigns': Campaign.objects.all(), 'campaign': campaign, 'votecountPercent': votecountPercent, 'votecount': votecount})
 
 def teamslist(request):
     teams = Team.objects.all()
