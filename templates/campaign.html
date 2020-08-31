@@ -39,43 +39,60 @@
             <div class="col">
                 <!-- has grid of teams -->
                 <h4 class="text-center ">Teams</h4>
-                <div class="card-columns">
-                    {% for matchup in campaign.matchups.all %}
 
-                    <div class="card " style="min-width: 10rem; max-width: 50rem; ">
+
+
+                {% for matchup in campaign.matchups.all %}
+
+
+                <div class="card-group">
+
+                    <!--bootstrap card with 2 horizontal images-->
+
+                    <div class="card col-md " style="min-width: 10rem; max-width: 50rem; ">
                         {% if matchup.team1.team_image.url %}
                         <img class="card-img-top " src="{{ matchup.team1.team_image.url }} " alt="A picture of {{matchup.team1.name}} "> {% else %}
                         <img class="card-img-top " src="{% static 'default-team-img.jpg' %} " alt="A picture of {{matchup.team1.name}} "> {% endif %}
                         <div class="card-body ">
-                            <h5 class="card-title ">Team {{ matchup.team1.name }}</h5>
-                            <p class="card-text "><small class="text-muted ">{{ matchup.team1.vote_count }} votes</small></p>
-                            <a href="/team/{{matchup.team1.slug}}" class="stretched-link">Go to team page</a>
+                            <h5 class="card-title ">Team {{ matchup.team1.name }} : {{ matchup.team1.vote_count }} votes </h5>
+                            <a href="/team/{{matchup.team1.slug}} " class="stretched-link ">Go to team page</a>
                         </div>
-
                     </div>
 
-                    <div class="card " style="min-width: 10rem; max-width: 50rem; ">
+
+
+                    <div class="card col-md " style="min-width: 10rem; max-width: 50rem; ">
                         {% if matchup.team2.team_image.url %}
                         <img class="card-img-top " src="{{ matchup.team2.team_image.url }} " alt="A picture of {{matchup.team2.name}} "> {% else %}
                         <img class="card-img-top " src="{% static 'default-team-img.jpg' %} " alt="A picture of {{matchup.team2.name}} "> {% endif %}
                         <div class="card-body ">
-                            <h5 class="card-title ">Team {{ matchup.team2.name }}</h5>
-                            <p class="card-text "><small class="text-muted ">{{ matchup.team2.vote_count }} votes</small></p>
-                            <a href="/team/{{matchup.team2.slug}}" class="stretched-link">Go to team page</a>
+                            <h5 class="card-title "> Team {{ matchup.team2.name }} : {{ matchup.team2.vote_count }} votes</h5>
+                            <a href="/team/{{matchup.team2.slug}} " class="stretched-link ">Go to team page</a>
                         </div>
+                    </div>
 
 
-                    </div> {% endfor %}
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-
-</div>
-
 </div>
 
 
+
+
+<!-- 
+<div class="card -group " style="min-width: 10rem; max-width: 50rem; ">
+    {% if matchup.team1.team_image.url %}
+    <img class="card-img-top " src="{{ matchup.team1.team_image.url }} " alt="A picture of {{matchup.team1.name}} "> {% else %}
+    <img class="card-img-top " src="{% static 'default-team-img.jpg' %} " alt="A picture of {{matchup.team1.name}} "> {% endif %}
+    <div class="card-body ">
+        <h5 class="card-title ">Team {{ matchup.team1.name }} versus Team {{ matchup.team2.name }} </h5>
+        <p class="card-text "><small class="text-muted "> {{ matchup.team1.name }} has {{ matchup.team1.vote_count }} votes</small></p>
+        <p class="card-text "><small class="text-muted "> {{ matchup.team2.name }} has {{ matchup.team2.vote_count }} votes</small></p>
+        <a href="/team/{{matchup.team1.slug}} " class="stretched-link ">Go to team page</a>
+    </div> -->
 
 
 <!-- 
