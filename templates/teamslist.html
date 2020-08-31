@@ -1,36 +1,20 @@
-<html>
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> {% load static %}
-<link rel="shortcut icon" href="{% static 'logo.png' type='image/x-icon' %}">
+{% extends 'base.html' %} {% load static %} {% block title %}
+<title> Choose your team </title>
+{% endblock title %} {% block content %} {% block body %}
+<div class="card-columns">
+    {% for team in teams %}
 
-<head>
-</head>
-
-<body>
-    {% include 'nav.html' %} {% block body %} {% endblock %}
-    <div>
-        <div class="bracket-header" style="font-family: Poppins Bold; font-size: 3.5vw; color: white">
-            Pick your team
-            <div class="teams-list-row">
-                {% for team in teams %}
-                <div class="teams-list-column">
-                    <a href="/team/{{team.name}}">
-                        <figure>
-                            {% if team.team_image %}
-                            <img src="{{ team.team_image.url }}" class="teams-list-img" alt="A picture of {{team.name}}">
-                            <figcaption style="font-family: Poppins Bold;">Team {{ team.name }}</figcaption>
-                            {% endif %}
-                        </figure>
-                    </a>
-                </div>
-                {% endfor %}
-            </div>
+    <div class="card " style="min-width: 10rem; max-width: 20rem; ">
+        {% if .team.team_image.url %}
+        <img class="card-img-top " src="{{ team.team_image.url }} " alt="A picture of {{ team.name}} "> {% else %}
+        <img class="card-img-top " src="{% static 'default-team-img.jpg' %} " alt="A picture of {{ team.name}} "> {% endif %}
+        <div class="card-body ">
+            <h5 class="card-title ">Team {{ team.name }}</h5>
+            <p class="card-text "><small class="text-muted ">{{ team.vote_count }} votes</small></p>
+            <a href="/team/{{ team.slug}}" class="stretched-link">Go to team page</a>
         </div>
     </div>
-
-
-</body>
+    {% endfor %}
+</div> {% endblock %} {% endblock content %}
 
 </html>

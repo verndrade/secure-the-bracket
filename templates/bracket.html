@@ -1,22 +1,38 @@
-<html>
-{%load static%}
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<head>
+    <style type="text/css">
+        .node circle {
+            cursor: pointer;
+            fill: blue;
+            stroke: blue;
+            stroke-width: 2px;
+        }
+        
+        .node text {
+            font: 12px sans-serif;
+            fill: white;
+        }
+        
+        path.link {
+            fill: none;
+            stroke: white;
+            stroke-width: 5px;
+        }
+    </style>
+</head>
 
 <body>
-    <h1 class="bracket-header">{{campaign.name}}'s Campaign</h1>
     <script src="https://d3js.org/d3.v3.js"></script>
     <div id="chart"></div>
     <script type="text/javascript">
         var margin = {
-                top: 5,
-                right: 5,
-                bottom: 5,
-                left: 5
+                top: 1,
+                right: 1,
+                bottom: 1,
+                left: 1
             },
-            width = window.innerWidth,
+            width = document.getElementById('chart').clientWidth,
             halfWidth = width / 2,
-            height = 600,
+            height = width / 2,
             i = 0,
             duration = 500,
             root;
@@ -295,6 +311,16 @@
                 }
                 update(source);
             }
+
+            function resize() {
+                width = document.getElementById('chart').clientWidth;
+                height = width / 2;
+                d3.select('#chart svg')
+                    .attr('width', width)
+                    .attr('height', height);
+            }
+
+            window.onresize = resize;
         }
     </script>
 </body>

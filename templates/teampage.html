@@ -1,11 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block title %}
+<title>{{team.name}}'s Team</title>
+{% endblock title %} {% block content %}
 
-{% block head %}
-<title style="font-family: Poppins Bold;"> {{team.name}}'s Team </title>
-{% endblock %}
+<div class="jumbotron" style="background-color:  #011f40; color: white">
+    <div class="container">
+        <h2 class="text-center">{{ team.name }}</h1>
+            {% include "bracket.html" %}
+    </div>
+</div>
 
-{% block body %}
-{% include "bracket.html" %}
 <div class="countdown">
     <div class="round">
         <h1 style="font-family:monospace;">First Round</h1>
@@ -27,4 +30,4 @@
 <div class="countdown">
     <img src="{{ team.team_image.url }}" class="round" style="width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
 </div>
-{% endblock %}
+{% endblock content %}
