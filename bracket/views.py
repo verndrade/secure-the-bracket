@@ -49,7 +49,7 @@ def team(request, slug):
     else:
         matchup = team.team2.all()[0]
     campaign = matchup.campaign_set.all()[0]
-    return render(request, "teampage.html", { "team": team, 'deadline': matchup.campaign_set.all()[0].deadline, 'campaign': campaign })
+    return render(request, "teampage.html", { 'campaigns': Campaign.objects.all(), "team": team, 'deadline': matchup.campaign_set.all()[0].deadline, 'campaign': campaign })
 
 def view404(request, exception=None):
     return render(request, "error.html")
