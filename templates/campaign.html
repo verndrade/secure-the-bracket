@@ -1,63 +1,138 @@
 {% extends 'base.html' %} {% load static %} {% block title %}
 <title>{{ campaign.name }}'s Campaign</title>
-{% endblock title %} {% include "bracket.html" %} {% block content %}
-<div class="campaign-main">
-    <div class="info-countdown">
-        <div class="campaign-info">
-            <div style="font-family: Poppins Bold; font-size: 4vw; font-weight: bold;">Campaign Information</div>
-            <p style="font-family: Raleway; font-size: 2vw; padding: 5pt"> {{ campaign.info }} </p>
+{% endblock title %} {% block content %}
+
+<div class="jumbotron" style="background-color:  #011f40; color: white">
+    <div class="container">
+        <h4 class="text-center">{{ campaign.name }}</h1>
+            {% include "bracket.html" %}
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <!-- has campaign info and progress -->
+            <div class="col align-items-center justify-content-center">
+                <div class="row">
+                    <div class="jumbotron" style=" min-width: 15rem; max-width: 90%;">
+                        <h4 class=" text-decoration ">Campaign Information</h4>
+                        <p class="card-text "> {{ campaign.info }} </p>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="card " style=" min-width: 15rem; max-width: 90%; ">
+                        <img class="card-img " src="{% static 'stopclock.jpg' %} " alt="... ">
+
+                        <div class="card-img-overlay text-white d-flex flex-column justify-content-center align-items-center ">
+                            <h4 class="card-title ">With {{ campaign.deadline|timeuntil }} remaining:</h4>
+
+                            <h5 class="card-text ">{{votecount}} voter registrations of {{campaign.goal}} goal</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="countdown">
-            <div style="font-family: Poppins Bold" class="campaign-countdown-info">
-                With <span style="font-weight: bold;">{{ campaign.deadline|timeuntil }}</span> remaining:
+        <div class="col">
+            <div class="col">
+                <!-- has grid of teams -->
+                <h4 class="text-center ">Teams</h4>
+                <div class="card-columns">
+                    {% for matchup in campaign.matchups.all %}
 
-            </div>
-            <img src="{% static 'stopclock.jpg' %}" class="campaign-stopclock-img" alt="Stopclock">
+                    <div class="card " style="min-width: 10rem; max-width: 50rem; ">
+                        {% if matchup.team1.team_image.url %}
+                        <img class="card-img-top " src="{{ matchup.team1.team_image.url }} " alt="A picture of {{matchup.team1.name}} "> {% else %}
+                        <img class="card-img-top " src="{% static 'default-team-img.jpg' %} " alt="A picture of {{matchup.team1.name}} "> {% endif %}
+                        <div class="card-body ">
+                            <h5 class="card-title ">Team {{ matchup.team1.name }}</h5>
+                            <p class="card-text "><small class="text-muted ">{{ matchup.team1.vote_count }} votes</small></p>
+                            <a href="/team/{{matchup.team1.slug}}" class="stretched-link">Go to team page</a>
+                        </div>
 
-            <div class="w3-container">
-                <div class="w3-light-grey">
-                    <div class="w3-red" style="height:24px;width:{{votecountPercent}}%"></div>
-                </div><br>
-            </div>
-            <div class="campaign-votes">
-                <div style="font-size: 2.5vw; font-family: Raleway;"><span style="font-weight: bold; color: #ff2323">{{votecount}}</span> voter registrations of <span style="font-weight: bold;">{{campaign.goal}} goal</span></div>
+                    </div>
+
+                    <div class="card " style="min-width: 10rem; max-width: 50rem; ">
+                        {% if matchup.team2.team_image.url %}
+                        <img class="card-img-top " src="{{ matchup.team2.team_image.url }} " alt="A picture of {{matchup.team2.name}} "> {% else %}
+                        <img class="card-img-top " src="{% static 'default-team-img.jpg' %} " alt="A picture of {{matchup.team2.name}} "> {% endif %}
+                        <div class="card-body ">
+                            <h5 class="card-title ">Team {{ matchup.team2.name }}</h5>
+                            <p class="card-text "><small class="text-muted ">{{ matchup.team2.vote_count }} votes</small></p>
+                            <a href="/team/{{matchup.team2.slug}}" class="stretched-link">Go to team page</a>
+                        </div>
+
+
+                    </div> {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-    <div style="font-family: Poppins Bold; font-weight: bold;" class="campaign-team-selection">
+
+</div>
+
+</div>
+
+
+
+
+<!-- 
+<div class="campaign-main ">
+    <div class="info-countdown ">
+
+
+        <div class="countdown ">
+            <div style="font-family: Poppins Bold " class="campaign-countdown-info ">
+                With <span style="font-weight: bold; ">{{ campaign.deadline|timeuntil }}</span> remaining:
+
+            </div>
+            <img src="{% static 'stopclock.jpg' %} " class="campaign-stopclock-img " alt="Stopclock ">
+
+            <div class="w3-container ">
+                <div class="w3-light-grey ">
+                    <div class="w3-red " style="height:24px;width:{{votecountPercent}}% "></div>
+                </div><br>
+            </div>
+            <div class="campaign-votes ">
+                <div style="font-size: 2.5vw; font-family: Raleway; "><span style="font-weight: bold; color: #ff2323 ">{{votecount}}</span> voter registrations of <span style="font-weight: bold; ">{{campaign.goal}} goal</span></div>
+            </div>
+        </div>
+    </div>
+    <div style="font-family: Poppins Bold; font-weight: bold; " class="campaign-team-selection ">
         Pick your team
-        <div class="campaign-team-pictures">
+        <div class="campaign-team-pictures ">
             {% for matchup in campaign.matchups.all %}
-            <div class="campaign-team">
+            <div class="campaign-team ">
                 <figure>
-                    <a href="/team/{{matchup.team1.slug}}" style="text-decoration: none;">
+                    <a href="/team/{{matchup.team1.slug}} " style="text-decoration: none; ">
                                 {% if matchup.team1.team_image.url %}
-                                    <img src= "{{ matchup.team1.team_image.url }}" class="campaign-team-img" alt="A picture of {{matchup.team1.name}}">
+                                    <img src= "{{ matchup.team1.team_image.url }} " class="campaign-team-img " alt="A picture of {{matchup.team1.name}} ">
                                 {% else %}
-                                    <img src= "{% static 'default-team-img.jpg' %}" class="tcampaign-team-img" alt="A picture of {{matchup.team1.name}}">
+                                    <img src= "{% static 'default-team-img.jpg' %} " class="tcampaign-team-img " alt="A picture of {{matchup.team1.name}} ">
                                 {% endif %}
-                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team1.name }}</figcaption>
+                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway; ">Team {{ matchup.team1.name }}</figcaption>
                             </a>
                 </figure>
             </div>
-            <a href="/matchup/{{matchup.slug}}" style="font-family: Raleway;">vs. </a>
-            <div class="campaign-team">
+            <a href="/matchup/{{matchup.slug}} " style="font-family: Raleway; ">vs. </a>
+            <div class="campaign-team ">
                 <figure>
-                    <a href="/team/{{matchup.team2.slug}}" style="text-decoration: none;">
+                    <a href="/team/{{matchup.team2.slug}} " style="text-decoration: none; ">
                                 {% if matchup.team2.team_image.url %}
-                                    <img src= "{{ matchup.team2.team_image.url }}" class="campaign-team-img" alt="A picture of {{matchup.team2.name}}">
+                                    <img src= "{{ matchup.team2.team_image.url }} " class="campaign-team-img " alt="A picture of {{matchup.team2.name}} ">
                                 {% else %}
-                                    <img src= "{% static 'default-team-img.jpg' %}" class="campaign-team-img" alt="A picture of {{matchup.team2.name}}">
+                                    <img src= "{% static 'default-team-img.jpg' %} " class="campaign-team-img " alt="A picture of {{matchup.team2.name}} ">
                                 {% endif %}
-                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway;">Team {{ matchup.team2.name }}</figcaption>
+                                <figcaption style="font-size:1vw; background-color: grey; font-family: Raleway; ">Team {{ matchup.team2.name }}</figcaption>
                             </a>
                 </figure>
             </div>
             {% endfor %}
         </div>
     </div>
-</div>
+</div> -->
 {% endblock content %}
 
 </body>
