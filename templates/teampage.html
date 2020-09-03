@@ -1,33 +1,43 @@
 {% extends 'base.html' %} {% block title %}
 <title>{{team.name}}'s Team</title>
 {% endblock title %} {% block content %}
-
+<div style="background-color: #011f40;">
 <div class="jumbotron" style="background-color:  #011f40; color: white">
     <div class="container">
-        <h2 class="text-center">{{ team.name }}</h1>
+        <h2 class="text-center" style="font-family: Poppins Bold; font-size: 4vw;"> Team {{ team.name }}</h1>
             {% include "bracket.html" %}
     </div>
 </div>
 
-<div class="countdown">
-    <div class="round">
-        <h1 style="font-family:monospace;">First Round</h1>
-    </div>
-    <div class="timer">
-        <h1 style="font-family:monospace;"> Time Left: {{ deadline|timeuntil }}</h1>
+<div class="container">
+    <div class="row">
+      <div class="col text-center">
+            <div class="round">
+                <h1 style="font-family:Poppins Bold; font-size: 3.5vw; color: white;">First Round</h1>
+            </div>
+            <div class="timer">
+                <h1 style="font-family:Poppins Bold; font-size: 3.5vw; color: white;"> Time Left: {{ deadline|timeuntil }}</h1>
+            </div>
+        
+        <h1 style="color: white; font-family:Raleway; font-size: 2.5vw;"> {{team.name}} needs your help!</h1>
+        <h2 style="color: white; font-family:Raleway; font-size: 1.5vw;"> Click this button to help {{team.name}} win!</h2>  
+        <a class="btn btn-secondary" href="/register/{{team.slug}}" style="font-family: Raleway ">
+            Register to Vote
+            </a>
+        </div>
     </div>
 </div>
 
-<h1 style="text-align: center; color: white; font-family:Cambria; font-size: 4vw;"> {{team.name}} needs your help!</h1>
-<h2 style="text-align: center; color: white; font-family:Cambria; font-size: 2vw;"> Click this button to help {{team.name}} win!</h2>
+<br>
 
-<div class="middle">
-    <a class="action" href="/register/{{team.slug}}" style="font-family: Georgia ">
-        Register to Vote
-    </a>
+<div class="container">
+    <div class="row">
+      <div class="col4">
+      <div class="text-center">
+          <img src="{{ team.team_image.url }}" class="round" style="width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
+      </div>
+        </div>
+    </div>
 </div>
-
-<div class="countdown">
-    <img src="{{ team.team_image.url }}" class="round" style="width: 50%; opacity: 30%" alt="A picture of {{team.name}}">
 </div>
 {% endblock content %}
